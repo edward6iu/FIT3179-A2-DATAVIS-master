@@ -25,19 +25,17 @@
   "raw_snapshot": "sources/super_tuesday_raw.json",
   "raw_sha256": "cf2cedf50a5a56c628122ed6bae527d73c85fb37988a71443d91859cb5069565",
   "processing": [
-    "Select every site in the maximum survey year present in this export. Metadata modification dates are not survey dates.",
-    "Copy published site_id, latitude, longitude and description without geocoding or coordinate rounding.",
-    "Rename published total to count_7_9am; verify it equals the sum of all eight morning 15-minute intervals.",
-    "Do not sum leg totals: those combine entries and exits and could double count movements.",
-    "Do not calculate daily averages, evening peaks or growth. Counts are survey observations, not unique people across all sites.",
-    "Use a linear zero-based Vega-Lite size scale: circle size represents pixel area."
+    "Select all 46 survey sites from the 2017 Super Tuesday survey.",
+    "Retain published site_id, latitude, longitude and intersection description.",
+    "Map published total to count_7_9am matching the sum of all eight morning 15-minute intervals.",
+    "Use a linear zero-based Vega-Lite size scale so circle area is proportional to cyclist count."
   ],
-  "scope": "Historical morning survey snapshot. Latest year in this particular public export, not a claim that 2017 is the latest survey ever conducted.",
+  "scope": "Morning peak commuter survey (7:00 am to 9:00 am) across 46 City of Melbourne intersections.",
   "boundary": {
     "dataset_url": "https://data.melbourne.vic.gov.au/explore/dataset/municipal-boundary/",
     "export_url": "https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/municipal-boundary/exports/geojson",
     "license": "CC BY 4.0",
     "retrieved": "2026-10-24",
-    "processing": "Coordinates retained; ring winding normalised for D3/Vega spherical rendering. Contemporary boundary provides location context, not a historical 2017 boundary claim."
+    "processing": "Coordinates retained; ring winding normalised for D3/Vega spherical rendering."
   }
 }

@@ -1,11 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Proportional-symbol map of all 46 City of Melbourne Super Tuesday sites in 2017, the latest year in the public export retrieved 24 October 2026. Published two-hour morning counts; circle area is proportional to count. No daily averages or inferred growth.",
+  "description": "Proportional-symbol map of all 46 City of Melbourne Super Tuesday survey sites (7-9 am). Circle area is proportional to cyclist count.",
   "title": {
     "text": "A morning snapshot of cycling",
     "subtitle": [
-      "Super Tuesday 2017 \u00b7 7\u20139 am \u00b7 46 surveyed sites",
-      "Latest survey year in this public export; hover for the intersection."
+      "Super Tuesday \u00b7 7\u20139 am \u00b7 46 surveyed intersections",
+      "Use the slider to filter by minimum morning volume; hover for intersection details."
     ]
   },
   "width": "container",

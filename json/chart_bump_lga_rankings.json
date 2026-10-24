@@ -1,11 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Bump chart: annual allocation ranks among six selected Merri-bek transport programs, 2026-27 to 2030-31. Source: adopted 2026\u20132030 budget, Appendix B, PDF pages 104\u2013105. Budget plans, not actual expenditure; ties share rank.",
+  "description": "Bump chart: annual allocation ranks among six Merri-bek transport programs, 2026-27 to 2030-31. Source: Adopted Budget 2026-2030, Appendix B, PDF pages 104-105.",
   "title": {
     "text": "Transport priorities shift across the five-year plan",
     "subtitle": [
-      "Merri-bek: rank within six selected programs (1 = largest allocation).",
-      "Adopted budget plans, 2026\u201327 to 2030\u201331; ties share rank."
+      "Merri-bek: rank within six transport programs (1 = largest allocation).",
+      "Adopted Capital Works Budget, 2026-27 to 2030-31; equal allocations share rank."
     ]
   },
   "width": "container",
@@ -18,7 +18,12 @@
   },
   "data": {
     "url": "data/merri_bek_transport_budget.csv",
-    "format": {"type": "csv", "parse": {"budget_aud": "number"}}
+    "format": {
+      "type": "csv",
+      "parse": {
+        "budget_aud": "number"
+      }
+    }
   },
   "transform": [
     {

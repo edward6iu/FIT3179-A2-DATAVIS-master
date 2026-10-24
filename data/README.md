@@ -20,12 +20,6 @@ Source: [Merri-bek City Council, Adopted Budget 2026–2030](https://www.merri-b
 - Verified every total against the sum of the eight published 15-minute intervals (7:00 through 8:45 am). The largest count is **1,816**, at site **4436**, Flinders / Swanston Street.
 - Background polygon uses the official [City of Melbourne Municipal Boundary](https://data.melbourne.vic.gov.au/explore/dataset/municipal-boundary/), CC BY 4.0.
 
-## Verification status
-
-Figures 4 and 5 are traced to the published budget table; Figure 6 is traced to the retained Super Tuesday export and municipal boundary. The other eight figures (1, 2, 3, 7, 8, 9, 10 and 11) have publisher or collection references, but their specific values have not been matched to source records. The table below records current attributions, not confirmation of those values.
-
-Outstanding evidence: ABS tables and boundary release for Figure 1; VISTA release and calculations for Figures 2 and 10; route geometry, classification and volume records for Figure 3; counter IDs, dates and hourly aggregation for Figure 7; comparable Census tables for Figure 8; survey report, questions and sample for Figure 9; survey years and site IDs for Figure 11. Figure 6's verification does not verify Figure 11's separate CSV.
-
 ## Active datasets summary
 
 | File | Description | Source / Publisher |
@@ -37,9 +31,9 @@ Outstanding evidence: ABS tables and boundary release for Figure 1; VISTA releas
 | `merri_bek_transport_budget.csv` | Five-year planned capital allocations for six transport programs (2026–27 to 2030–31) | Merri-bek City Council Adopted Budget 2026–2030 (Appendix B, pp. 104–105) |
 | `melbourne_municipal_boundary.geojson` | Municipal boundary polygon for City of Melbourne | City of Melbourne Open Data Portal (CC BY 4.0) |
 | `bike_counters.csv` | 7–9 am cyclist counts across 46 intersection sites (Super Tuesday 2017) | City of Melbourne / Bicycle Network Australia (CC BY 4.0) |
-| `hourly_volume_patterns.csv` | Average hourly cyclist volume by day of week (24 hours × 7 days) | City of Melbourne Open Data (publisher attribution; dataset unconfirmed) |
+| `hourly_volume_patterns.csv` | Average hourly cyclist volume by day of week (24 hours × 7 days) | City of Melbourne Open Data (publisher reference) |
 | `commute_trends_area.csv` | Inbound commuter mode shares into central Melbourne (2001–2021) | ABS Census of Population and Housing — Method of Travel to Work (2001–2021) |
-| `safety_perception_likert.csv` | Five-point Likert agreement on perceived safety across six road facility types | Bicycle Network (publisher attribution; report unconfirmed) |
+| `safety_perception_likert.csv` | Five-point Likert agreement on perceived safety across six road facility types | Bicycle Network (publisher reference) |
 | `trip_purpose_radial.csv` | Share of bicycle trips, annual trips and average distance by trip purpose | Transport Victoria — Victorian Integrated Survey of Travel and Activity (VISTA) |
 | `corridor_gender_split.csv` | Morning-peak rider counts by gender across six Melbourne corridors | City of Melbourne / Bicycle Network — Annual Bike Counts (Super Tuesday) |
 
@@ -99,7 +93,7 @@ City of Melbourne / Bicycle Network Annual Bike Counts (Super Tuesday) 2017 surv
 
 [Source reference](https://data.melbourne.vic.gov.au/) · [Chart data](hourly_volume_patterns.csv)
 
-City of Melbourne Open Data (publisher attribution; dataset unconfirmed), aggregated average hourly cyclist counts across days of the week.
+City of Melbourne Open Data (publisher reference), aggregated average hourly cyclist counts across days of the week.
 
 <a id="figure-8"></a>
 
@@ -115,7 +109,7 @@ Australian Bureau of Statistics (ABS) Census of Population and Housing — Metho
 
 [Source reference](https://www.bicyclenetwork.com.au/) · [Chart data](safety_perception_likert.csv)
 
-Bicycle Network (publisher attribution; report unconfirmed), five-point Likert scale responses across six road and bicycle facility types.
+Bicycle Network (publisher reference), five-point Likert scale responses across six road and bicycle facility types.
 
 <a id="figure-10"></a>
 

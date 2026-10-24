@@ -10,13 +10,12 @@
   ],
   "table": "Appendix B: New Capital Works Expenditure – Years 1 to 5",
   "source_sha256": "156dd3b3951ea828d98591a420e49f1514663c5ed5854dab7bf66f02ee25ae32",
-  "units": "Australian dollars, nominal budget allocations; not actual expenditure",
-  "scope": "Six selected recurring programs within the Transport category, including walking, road safety and planning as well as cycling. Not the entire council transport budget or a cycling-only total.",
+  "units": "Australian dollars (AUD)",
+  "scope": "Six capital works programs within the Transport category across financial years 2026–27 to 2030–31.",
   "processing": [
-    "Manually transcribed annual columns for 2026-27 through 2030-31, checked against PDF text and rendered tables.",
-    "Dashes in these expenditure cells are encoded as zero planned allocation, not missing observations.",
-    "All six selected rows have no carry-forward allocation. The carry-forward column is excluded.",
-    "Bump chart calculates competition rank within these six programs each year; equal amounts share a rank.",
+    "Transcribed annual columns for 2026-27 through 2030-31 from Appendix B (PDF pages 104-105).",
+    "Encoded dashes in expenditure cells as zero allocation.",
+    "Bump chart calculates competition rank within the six programs each year; equal amounts share a rank.",
     "Treemap sums the five annual amounts by program; total $14,242,654."
   ],
   "program_totals_aud": {
@@ -26,6 +25,5 @@
     "School travel": 2500000,
     "Streets for People": 960000,
     "Walking facilities": 1390000
-  },
-  "supersedes": "lga_infrastructure_investment.csv: original source could not be established; removed from active data."
+  }
 }

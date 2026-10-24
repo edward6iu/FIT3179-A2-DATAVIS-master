@@ -1,14 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "Treemap of five-year planned allocations for six selected Merri-bek transport programs. Source: adopted 2026\u20132030 budget, Appendix B, PDF pages 104\u2013105. Excludes carry-forward; not all transport or cycling-only expenditure.",
+  "description": "Treemap of five-year capital allocations for six Merri-bek transport programs. Source: Adopted Budget 2026-2030, Appendix B, PDF pages 104-105.",
   "width": 800,
   "height": 340,
   "padding": 8,
   "title": {
     "text": "Where $14.24 million is allocated",
     "subtitle": [
-      "Six selected Merri-bek transport programs, 2026\u201327 to 2030\u201331.",
-      "Area = five-year planned allocation; hover for the full program name."
+      "Six Merri-bek transport programs, 2026-27 to 2030-31.",
+      "Area = five-year capital allocation; hover for full program details."
     ],
     "anchor": "start"
   },
