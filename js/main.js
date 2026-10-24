@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return lines;
     }, []);
     const available = Math.max(200, targetElement.clientWidth - 16);
-    fetch(spec).then(response => {
+    fetch(spec, { cache: "no-store" }).then(response => {
       if (!response.ok) throw new Error(`Cannot load ${spec}: ${response.status}`);
       return response.json();
     }).then(chart => {

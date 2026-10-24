@@ -24,7 +24,7 @@ A single scrolling page for an Australian general audience. Four sections explai
 | Safety | Equal-angle coxcomb | Compare purpose shares by wedge area |
 | Safety | Grouped bars | Compare gender counts at selected corridors |
 
-There are 11 charts and three distinct map idioms. Maps, waffle, bump, heatmap, coxcomb and treemap provide eight intended advanced idioms. Diverging stacked bars, grouped bars and stacked area are conservatively treated as basic. Final classification and effectiveness are assessed by the tutor; this is not a grade guarantee.
+There are 11 charts and three distinct map idioms. Maps, waffle, bump, heatmap, coxcomb and treemap provide eight advanced idioms, complemented by diverging stacked bars, grouped bars and stacked area charts.
 
 ## Implementation
 
@@ -34,9 +34,8 @@ Titles wrap to their initial column width, charts resize with their containers, 
 
 ## Data sources
 
-The two allocation charts use Merri-bek City Council's adopted 2026–2030 budget, Appendix B, PDF pages 104–105. The 30 annual amounts were transcribed and checked against the source table, including its five-year totals. They are plans for six selected programs, not actual expenditure, all transport spending, or a cycling-only total. Equal amounts share rank. The original unsupported cross-council spending series is no longer used.
+The two allocation charts use Merri-bek City Council's adopted 2026–2030 budget, Appendix B, PDF pages 104–105. The 30 annual amounts were transcribed and checked against the source table, including its five-year totals. Equal amounts share rank.
 
-Figure 6 uses the City of Melbourne / Bicycle Network Annual Bike Counts (Super Tuesday) export. All 46 sites in 2017 are included, with original site IDs and coordinates; each published total matches its eight morning intervals. The public export ends in 2017, so the map is explicitly historical. No daily averages, evening peaks or inferred growth rates are shown. The map background is the council's official municipal boundary. Sources are linked in the caption and footer.
+Figure 6 uses the City of Melbourne / Bicycle Network Annual Bike Counts (Super Tuesday) export. All 46 sites in 2017 are included, with original site IDs and coordinates; each published total matches its eight morning intervals. The map background is the council's official municipal boundary. Sources for all 11 figures are linked in each caption, the page footer, and [data/README.md](data/README.md).
 
-See [data/README.md](data/README.md) for the exact sources, inventory and processing details. These source checks cover the replacement allocation data and Figure 6's survey/boundary data; they do not establish provenance for the other datasets inherited from the project. The counter CSV can be rebuilt with `python scripts/prepare_bike_counts.py` using the retained original API export.
-
+Verification covers Figures 4, 5 and 6. The other eight figures have publisher or collection references, but their values still require matching source records. See the verification status in [data/README.md](data/README.md). Budget figures are planned allocations for six selected programs, not actual expenditure or all transport spending.

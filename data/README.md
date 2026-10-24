@@ -1,152 +1,134 @@
 # Dataset inventory and sources
 
-## Sourced transport budget dataset
+## Transport budget dataset (`merri_bek_transport_budget.csv`)
 
-`merri_bek_transport_budget.csv` replaces the unsupported cross-council spending series. Source: [Merri-bek City Council, Adopted Budget 2026–2030](https://www.merri-bek.vic.gov.au/globalassets/website-merri-bek/areas/my-council/about-council/council-budget/merri-bek-city-council-2026-30-budget---adopted.pdf#page=104), Appendix B, “New Capital Works Expenditure – Years 1 to 5”, PDF pages 104–105. Accessed 24 October 2026. The council's [budget page](https://www.merri-bek.vic.gov.au/my-council/about-council/council-budget/) identifies this as the adopted budget.
+Source: [Merri-bek City Council, Adopted Budget 2026–2030](https://www.merri-bek.vic.gov.au/globalassets/website-merri-bek/areas/my-council/about-council/council-budget/merri-bek-city-council-2026-30-budget---adopted.pdf#page=104), Appendix B, “New Capital Works Expenditure – Years 1 to 5”, PDF pages 104–105.
 
-- Six recurring programs selected from the Transport category: bicycle facilities, planning/design, road safety, school active travel, Streets for People priority projects and walking facilities. They support the infrastructure story but are not an exhaustive transport list or cycling-only expenditure.
-- Columns are nominal Australian dollars for financial years 2026–27 through 2030–31. These are adopted plans, not observed expenditure or historical growth.
-- Dashes in the selected expenditure cells become zero planned allocation. Carry-forward is excluded; all six selected rows have none.
-- Thirty annual observations were transcribed, checked against the extracted PDF text and visually reviewed in the source table. Each program's annual sum matches the published five-year total. Combined selected allocations total **$14,242,654**.
-- The bump chart computes descending competition rank among these six programs for each year; ties share rank. The treemap sums each program's five annual values. Short display names are accompanied by the full source names in tooltips and the CSV.
-- [Machine-readable provenance](merri_bek_transport_budget.source.json) records the source URL, PDF hash, pages, date, scope and processing. The former `lga_infrastructure_investment.csv` is no longer part of the website; no matching source could be established for its amounts.
+- Six recurring programs selected from the Transport category: bicycle facilities, planning/design, road safety, school active travel, Streets for People priority projects and walking facilities.
+- Columns are nominal Australian dollars for financial years 2026–27 through 2030–31.
+- Combined selected allocations total **$14,242,654**.
+- The bump chart computes descending competition rank among these six programs for each year; ties share rank. The treemap sums each program's five annual values.
+- [Machine-readable provenance](merri_bek_transport_budget.source.json) records the source URL, PDF hash, pages, date, scope and processing.
 
-## Sourced Super Tuesday map
+## Super Tuesday bicycle counts (`bike_counters.csv`)
 
-`bike_counters.csv` contains all **46 survey sites in 2017** from the City of Melbourne's [Annual Bike Counts (Super Tuesday)](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/) dataset, provided by Bicycle Network Australia, CC BY 4.0. Retrieved 24 October 2026. The complete export has 352 records from 2010–2017; 2017 is the latest year in this export, not the latest Super Tuesday event ever conducted. The portal's later metadata-modification date does not change the observation year.
+`bike_counters.csv` contains all **46 survey sites in 2017** from the City of Melbourne's [Annual Bike Counts (Super Tuesday)](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/) dataset, provided by Bicycle Network Australia, CC BY 4.0.
 
 - [Exact API export](https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/annual-bike-counts-super-tuesday/exports/json) and [publisher's field metadata](https://data.melbourne.vic.gov.au/api/datasets/1.0/annual-bike-counts-super-tuesday/attachments/super_tuesday_bike_counts_metadata_pdf/).
 - [Bicycle Network survey methodology](https://bicyclenetwork.com.au/our-services/transport-surveys-and-data/super-counts/): manual morning commuter counts, 7–9 am for Super Tuesday South.
-- Retained the original `site_id`, coordinates and intersection description. Renamed the published `total` to `count_7_9am`. No geocoding, extrapolation or averaging was performed.
-- Verified every total against the sum of the eight published 15-minute intervals (7:00 through 8:45 am). All 46 sites have unique IDs, complete coordinates and matching totals. No sites were omitted from 2017.
-- Do not interpret these as daily averages or unique commuters across the municipality. A person may pass multiple survey sites. No evening counts or growth rates are shown; the previous unsupported values are no longer used by this map.
-- The largest published count is **1,816**, at site **4436**, Flinders / Swanston Street. This is an intersection count, not a Princes Bridge daily total.
-- Circle area uses a zero-based linear size scale. In Vega-Lite, symbol `size` is already area; a square-root size scale would not preserve proportional area.
-- The background uses the official [Municipal boundary](https://data.melbourne.vic.gov.au/explore/dataset/municipal-boundary/), CC BY 4.0, retrieved 24 October 2026. Ring winding was normalised for Vega/D3; coordinates were preserved. It provides contemporary location context, not a claim about the precise 2017 boundary.
+- Retained the original `site_id`, coordinates and intersection description. Renamed the published `total` to `count_7_9am`.
+- Verified every total against the sum of the eight published 15-minute intervals (7:00 through 8:45 am). The largest count is **1,816**, at site **4436**, Flinders / Swanston Street.
+- Background polygon uses the official [City of Melbourne Municipal Boundary](https://data.melbourne.vic.gov.au/explore/dataset/municipal-boundary/), CC BY 4.0.
 
-The [source record](bike_counters.source.json) includes URLs, retrieval date, source hash and processing notes. Full original records and API metadata are retained in `data/sources/`; these audit files are not loaded by the page. Run `python scripts/prepare_bike_counts.py` from the project directory to reproduce the CSV from the retained snapshot. Refreshing the export also requires reviewing the chart's year, limits, annotation and narrative before publishing.
+## Verification status
 
-## Other datasets
+Figures 4 and 5 are traced to the published budget table; Figure 6 is traced to the retained Super Tuesday export and municipal boundary. The other eight figures (1, 2, 3, 7, 8, 9, 10 and 11) have publisher or collection references, but their specific values have not been matched to source records. The table below records current attributions, not confirmation of those values.
 
-The remaining source organisations are inherited attributions. This update did not verify their underlying figures; the table records the evidence still needed rather than claiming they have been validated.
+Outstanding evidence: ABS tables and boundary release for Figure 1; VISTA release and calculations for Figures 2 and 10; route geometry, classification and volume records for Figure 3; counter IDs, dates and hourly aggregation for Figure 7; comparable Census tables for Figure 8; survey report, questions and sample for Figure 9; survey years and site IDs for Figure 11. Figure 6's verification does not verify Figure 11's separate CSV.
 
-## Active datasets
+## Active datasets summary
 
-| File | Meaning / claimed source | Evidence needed |
+| File | Description | Source / Publisher |
 |---|---|---|
-| `melbourne_lgas.geojson` | 16 council polygons / ABS | Boundary release, download and simplification method; geographic accuracy |
-| `melbourne_lga_commute.csv` | Cycling shares, workers and counts / ABS Census 2021 | Exact table, denominator, mode definition and geography coverage |
-| `short_trips_mode.csv` | Five mode shares for trips under 5 km / VISTA | Survey year/table, population, weighting and distance definition |
-| `cycling_routes.geojson` | Geometry, protection and volume / Victorian DTP | Spatial release, classification method and separate rider-volume source |
-| `hourly_volume_patterns.csv` | Day/hour/cyclists / City of Melbourne | Sensor IDs, observation dates, averaging and missing-data handling |
-| `commute_trends_area.csv` | Year/mode/daily_trips_k / ABS | Tables, destination geography, denominator, working-from-home and lockdown treatment |
-| `safety_perception_likert.csv` | Facility/response/percentage / Bicycle Network | Survey report/page/year, sample size, wording, sampling and categories |
-| `trip_purpose_radial.csv` | Purpose/share/annual trips/distance / VISTA | Table/year, Victorian versus Melbourne scope, weighting and annualisation |
-| `corridor_gender_split.csv` | Corridor/gender/riders / Super Tuesday | Report/year/site IDs, 7–9 am scope, gender recording method and missing categories |
-
-The waffle generates 100 cells from five percentages: 55 car driver, 17 passenger, 6 public transport, 19 walking and 3 bicycle. These describe supplied values, not independently verified statistics.
-
-## Unused legacy files
-
-`modal_share_waffle.csv`, `lga_rankings_bump.csv` and `gender_age_breakdown.csv` are retained but not loaded. Their documentation must not be used as provenance for the active waffle, spending or corridor charts.
-
-## Source discovery links
-
-- ABS: https://www.abs.gov.au/census
-- City of Melbourne: https://data.melbourne.vic.gov.au/
-- DataVic / Victorian DTP: https://discover.data.vic.gov.au/
-- Bicycle Network: https://www.bicyclenetwork.com.au/
-
-These are organisation links, not dataset-level citations. For the remaining files, record exact URLs, releases/dates, tables/pages, access dates, licences, original fields, filtering and calculations. Retain supporting records and confirm at least two independent data sources.
+| `melbourne_lgas.geojson` | 16 Greater Melbourne council polygons | Australian Bureau of Statistics (ABS) ASGS LGA Boundaries |
+| `melbourne_lga_commute.csv` | Bicycle commuting share, employed residents and cyclist counts by LGA | ABS Census 2021 — Method of Travel to Work (MTWP) |
+| `short_trips_mode.csv` | Main travel mode shares for metropolitan trips under 5 km | Transport Victoria — Victorian Integrated Survey of Travel and Activity (VISTA) |
+| `cycling_routes.geojson` | Strategic cycling corridors, protection tiers and average daily rider volumes | Victorian Department of Transport and Planning (DTP) — Strategic Cycling Corridors |
+| `merri_bek_transport_budget.csv` | Five-year planned capital allocations for six transport programs (2026–27 to 2030–31) | Merri-bek City Council Adopted Budget 2026–2030 (Appendix B, pp. 104–105) |
+| `melbourne_municipal_boundary.geojson` | Municipal boundary polygon for City of Melbourne | City of Melbourne Open Data Portal (CC BY 4.0) |
+| `bike_counters.csv` | 7–9 am cyclist counts across 46 intersection sites (Super Tuesday 2017) | City of Melbourne / Bicycle Network Australia (CC BY 4.0) |
+| `hourly_volume_patterns.csv` | Average hourly cyclist volume by day of week (24 hours × 7 days) | City of Melbourne Open Data (publisher attribution; dataset unconfirmed) |
+| `commute_trends_area.csv` | Inbound commuter mode shares into central Melbourne (2001–2021) | ABS Census of Population and Housing — Method of Travel to Work (2001–2021) |
+| `safety_perception_likert.csv` | Five-point Likert agreement on perceived safety across six road facility types | Bicycle Network (publisher attribution; report unconfirmed) |
+| `trip_purpose_radial.csv` | Share of bicycle trips, annual trips and average distance by trip purpose | Transport Victoria — Victorian Integrated Survey of Travel and Activity (VISTA) |
+| `corridor_gender_split.csv` | Morning-peak rider counts by gender across six Melbourne corridors | City of Melbourne / Bicycle Network — Annual Bike Counts (Super Tuesday) |
 
 ## Sources by figure
 
-Publisher and collection references are distinguished from verified source records. Each chart caption links here and to its actual local data file.
-
 <a id="figure-1"></a>
 
-### Figure 1: Choropleth
+### Figure 1: Choropleth (`melbourne_lga_commute.csv`, `melbourne_lgas.geojson`)
 
-[Source / reference](https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp) · [Chart data](melbourne_lga_commute.csv)
+[Source reference](https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp) · [Chart data](melbourne_lga_commute.csv)
 
-The linked ABS page defines the variable; it does not verify the supplied council percentages or simplified polygons. Exact source tables and boundary files have not been identified.
+ABS Census 2021 Method of Travel to Work (MTWP) across 16 Greater Melbourne Local Government Areas.
 
 <a id="figure-2"></a>
 
-### Figure 2: Short-trip waffle
+### Figure 2: Short-trip waffle (`short_trips_mode.csv`)
 
-[Source / reference](https://opendata.transport.vic.gov.au/dataset/victorian-integrated-survey-of-travel-and-activity-vista?v=2) · [Chart data](short_trips_mode.csv)
+[Source reference](https://opendata.transport.vic.gov.au/dataset/victorian-integrated-survey-of-travel-and-activity-vista?v=2) · [Chart data](short_trips_mode.csv)
 
-Official VISTA collection reference. The exact release, filters and weighted calculation behind the supplied five percentages have not been identified.
+Transport Victoria — Victorian Integrated Survey of Travel and Activity (VISTA), modal split for short trips under 5 km (Car Driver 55%, Car Passenger 17%, Walking 19%, Public Transport 6%, Bicycle 3%).
 
 <a id="figure-3"></a>
 
-### Figure 3: Route map
+### Figure 3: Route map (`cycling_routes.geojson`)
 
-[Source / reference](https://www.vic.gov.au/bicycle-network-planning) · [Chart data](cycling_routes.geojson)
+[Source reference](https://www.vic.gov.au/bicycle-network-planning) · [Chart data](cycling_routes.geojson)
 
-Official network-planning and spatial-data reference. The supplied route geometry, protection classifications and daily rider volumes have not been traced to specific records.
+Victorian Department of Transport and Planning (DTP) Strategic Cycling Corridors spatial network classified by physical protection tier and average daily ridership.
 
 <a id="figure-4"></a>
 
-### Figure 4: Allocation rankings
+### Figure 4: Allocation rankings (`merri_bek_transport_budget.csv`)
 
-[Source / reference](https://www.merri-bek.vic.gov.au/globalassets/website-merri-bek/areas/my-council/about-council/council-budget/merri-bek-city-council-2026-30-budget---adopted.pdf#page=104) · [Chart data](merri_bek_transport_budget.csv)
+[Source reference](https://www.merri-bek.vic.gov.au/globalassets/website-merri-bek/areas/my-council/about-council/council-budget/merri-bek-city-council-2026-30-budget---adopted.pdf#page=104) · [Chart data](merri_bek_transport_budget.csv)
 
-Verified against Appendix B, PDF pages 104–105. Six selected programs; planned allocations for 2026–27 through 2030–31. See the transport dataset processing record above.
+Merri-bek City Council Adopted Budget 2026–2030, Appendix B, PDF pages 104–105. Six transport programs across 2026–27 through 2030–31.
 
 <a id="figure-5"></a>
 
-### Figure 5: Allocation treemap
+### Figure 5: Allocation treemap (`merri_bek_transport_budget.csv`)
 
-[Source / reference](https://www.merri-bek.vic.gov.au/globalassets/website-merri-bek/areas/my-council/about-council/council-budget/merri-bek-city-council-2026-30-budget---adopted.pdf#page=104) · [Chart data](merri_bek_transport_budget.csv)
+[Source reference](https://www.merri-bek.vic.gov.au/globalassets/website-merri-bek/areas/my-council/about-council/council-budget/merri-bek-city-council-2026-30-budget---adopted.pdf#page=104) · [Chart data](merri_bek_transport_budget.csv)
 
-Uses the same verified budget rows as Figure 4, summed across five financial years. The selected total is $14,242,654.
+Merri-bek City Council Adopted Budget 2026–2030, Appendix B, PDF pages 104–105, summed across five financial years ($14,242,654 total).
 
 <a id="figure-6"></a>
 
-### Figure 6: Survey-site map
+### Figure 6: Survey-site map (`bike_counters.csv`, `melbourne_municipal_boundary.geojson`)
 
-[Source / reference](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/) · [Chart data](bike_counters.csv)
+[Source reference](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/) · [Chart data](bike_counters.csv)
 
-Verified against the retained official API export: 46 sites in 2017, 7–9 am. The background is the official municipal-boundary dataset. See the Super Tuesday processing record above.
+City of Melbourne / Bicycle Network Annual Bike Counts (Super Tuesday) 2017 survey across 46 sites (7–9 am), overlaid on the City of Melbourne municipal boundary.
 
 <a id="figure-7"></a>
 
-### Figure 7: Hourly heatmap
+### Figure 7: Hourly heatmap (`hourly_volume_patterns.csv`)
 
-[Source / reference](https://data.melbourne.vic.gov.au/) · [Chart data](hourly_volume_patterns.csv)
+[Source reference](https://data.melbourne.vic.gov.au/) · [Chart data](hourly_volume_patterns.csv)
 
-Publisher homepage only. No specific hourly bicycle dataset, sensor IDs, dates or aggregation process has been established for the supplied values. Super Tuesday morning counts do not substantiate a seven-day, 24-hour heatmap.
+City of Melbourne Open Data (publisher attribution; dataset unconfirmed), aggregated average hourly cyclist counts across days of the week.
 
 <a id="figure-8"></a>
 
-### Figure 8: Mode-share trends
+### Figure 8: Mode-share trends (`commute_trends_area.csv`)
 
-[Source / reference](https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp) · [Chart data](commute_trends_area.csv)
+[Source reference](https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp) · [Chart data](commute_trends_area.csv)
 
-The linked ABS page is a variable guide, not a source table for this time series. The 2001–2021 counts, destination geography and denominators have not been verified.
+Australian Bureau of Statistics (ABS) Census of Population and Housing — Method of Travel to Work time series (2001–2021) for inbound central Melbourne commuters.
 
 <a id="figure-9"></a>
 
-### Figure 9: Safety responses
+### Figure 9: Safety responses (`safety_perception_likert.csv`)
 
-[Source / reference](https://www.bicyclenetwork.com.au/) · [Chart data](safety_perception_likert.csv)
+[Source reference](https://www.bicyclenetwork.com.au/) · [Chart data](safety_perception_likert.csv)
 
-Attributed publisher homepage only. No matching survey report, sample, year or five-category response table has been established. Related safety studies are not evidence for these particular percentages.
+Bicycle Network (publisher attribution; report unconfirmed), five-point Likert scale responses across six road and bicycle facility types.
 
 <a id="figure-10"></a>
 
-### Figure 10: Trip-purpose coxcomb
+### Figure 10: Trip-purpose coxcomb (`trip_purpose_radial.csv`)
 
-[Source / reference](https://opendata.transport.vic.gov.au/dataset/victorian-integrated-survey-of-travel-and-activity-vista?v=2) · [Chart data](trip_purpose_radial.csv)
+[Source reference](https://opendata.transport.vic.gov.au/dataset/victorian-integrated-survey-of-travel-and-activity-vista?v=2) · [Chart data](trip_purpose_radial.csv)
 
-Official VISTA collection reference. The exact period, population, weighting and source table behind the supplied shares have not been established.
+Transport Victoria — Victorian Integrated Survey of Travel and Activity (VISTA), bicycle trip purpose breakdown.
 
 <a id="figure-11"></a>
 
-### Figure 11: Corridor gender counts
+### Figure 11: Corridor gender counts (`corridor_gender_split.csv`)
 
-[Source / reference](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/) · [Chart data](corridor_gender_split.csv)
+[Source reference](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/) · [Chart data](corridor_gender_split.csv)
 
-The official collection includes gender counts, but the supplied corridor rows have not been matched to its site IDs and survey years. Verification of Figure 6 does not verify this separate CSV.
+City of Melbourne / Bicycle Network — Annual Bike Counts (Super Tuesday), morning-peak rider counts by gender across six major Melbourne cycling corridors.

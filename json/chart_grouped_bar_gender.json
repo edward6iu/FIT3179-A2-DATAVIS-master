@@ -28,7 +28,7 @@
       "type": "quantitative",
       "title": "Riders counted (7–9 am)",
       "scale": {"domain": [0, 1200]},
-      "axis": {"format": ",", "tickCount": 4}
+      "axis": {"format": ",.0f", "tickCount": 4}
     }
   },
   "layer": [
@@ -46,7 +46,7 @@
         "tooltip": [
           {"field": "corridor", "type": "nominal", "title": "Corridor"},
           {"field": "gender", "type": "nominal", "title": "Gender"},
-          {"field": "riders", "type": "quantitative", "title": "Riders", "format": ","},
+          {"field": "riders", "type": "quantitative", "title": "Riders", "format": ",.0f"},
           {"field": "share", "type": "quantitative", "title": "Share of corridor", "format": ".0%"}
         ]
       }

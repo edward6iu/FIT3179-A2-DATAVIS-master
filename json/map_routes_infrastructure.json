@@ -65,7 +65,7 @@
           "type": "quantitative",
           "title": "Avg daily riders",
           "scale": {"range": [1.5, 6]},
-          "legend": {"orient": "bottom-right", "fillColor": "#ffffffee", "padding": 8, "cornerRadius": 6, "format": ","}
+          "legend": {"orient": "bottom-right", "fillColor": "#ffffffee", "padding": 8, "cornerRadius": 6, "format": ",.0f"}
         },
         "opacity": {
           "condition": {"param": "tierSelect", "value": 1},
@@ -75,7 +75,7 @@
           {"field": "route", "type": "nominal", "title": "Corridor"},
           {"field": "tier", "type": "nominal", "title": "Protection level"},
           {"field": "length_km", "type": "quantitative", "title": "Length (km)", "format": ".1f"},
-          {"field": "daily_volume", "type": "quantitative", "title": "Avg daily riders", "format": ","}
+          {"field": "daily_volume", "type": "quantitative", "title": "Avg daily riders", "format": ",.0f"}
         ]
       }
     },
