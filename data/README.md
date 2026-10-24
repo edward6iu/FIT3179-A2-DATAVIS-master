@@ -6,7 +6,7 @@ Source: [Merri-bek City Council, Adopted Budget 2026–2030](https://www.merri-b
 
 - Six recurring programs selected from the Transport category: bicycle facilities, planning/design, road safety, school active travel, Streets for People priority projects and walking facilities.
 - Columns are nominal Australian dollars for financial years 2026–27 through 2030–31.
-- Combined selected allocations total **$14,242,654**.
+- Combined capital allocations total **$14,242,654**.
 - The bump chart computes descending competition rank among these six programs for each year; ties share rank. The treemap sums each program's five annual values.
 - [Machine-readable provenance](merri_bek_transport_budget.source.json) records the source URL, PDF hash, pages, date, scope and processing.
 
@@ -17,7 +17,7 @@ Source: [Merri-bek City Council, Adopted Budget 2026–2030](https://www.merri-b
 - [Exact API export](https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/annual-bike-counts-super-tuesday/exports/json) and [publisher's field metadata](https://data.melbourne.vic.gov.au/api/datasets/1.0/annual-bike-counts-super-tuesday/attachments/super_tuesday_bike_counts_metadata_pdf/).
 - [Bicycle Network survey methodology](https://bicyclenetwork.com.au/our-services/transport-surveys-and-data/super-counts/): manual morning commuter counts, 7–9 am for Super Tuesday South.
 - Retained the original `site_id`, coordinates and intersection description. Renamed the published `total` to `count_7_9am`.
-- Verified every total against the sum of the eight published 15-minute intervals (7:00 through 8:45 am). The largest count is **1,816**, at site **4436**, Flinders / Swanston Street.
+- All 46 totals match the sum of the eight published 15-minute intervals (7:00 through 8:45 am). The largest count is **1,816**, at site **4436**, Flinders / Swanston Street.
 - Background polygon uses the official [City of Melbourne Municipal Boundary](https://data.melbourne.vic.gov.au/explore/dataset/municipal-boundary/), CC BY 4.0.
 
 ## Active datasets summary
@@ -28,12 +28,12 @@ Source: [Merri-bek City Council, Adopted Budget 2026–2030](https://www.merri-b
 | `melbourne_lga_commute.csv` | Bicycle commuting share, employed residents and cyclist counts by LGA | ABS Census 2021 — Method of Travel to Work (MTWP) |
 | `short_trips_mode.csv` | Main travel mode shares for metropolitan trips under 5 km | Transport Victoria — Victorian Integrated Survey of Travel and Activity (VISTA) |
 | `cycling_routes.geojson` | Strategic cycling corridors, protection tiers and average daily rider volumes | Victorian Department of Transport and Planning (DTP) — Strategic Cycling Corridors |
-| `merri_bek_transport_budget.csv` | Five-year planned capital allocations for six transport programs (2026–27 to 2030–31) | Merri-bek City Council Adopted Budget 2026–2030 (Appendix B, pp. 104–105) |
+| `merri_bek_transport_budget.csv` | Five-year capital allocations for six transport programs (2026–27 to 2030–31) | Merri-bek City Council Adopted Budget 2026–2030 (Appendix B, pp. 104–105) |
 | `melbourne_municipal_boundary.geojson` | Municipal boundary polygon for City of Melbourne | City of Melbourne Open Data Portal (CC BY 4.0) |
 | `bike_counters.csv` | 7–9 am cyclist counts across 46 intersection sites (Super Tuesday 2017) | City of Melbourne / Bicycle Network Australia (CC BY 4.0) |
-| `hourly_volume_patterns.csv` | Average hourly cyclist volume by day of week (24 hours × 7 days) | City of Melbourne Open Data (publisher reference) |
+| `hourly_volume_patterns.csv` | Average hourly cyclist volume by day of week (24 hours × 7 days) | City of Melbourne Open Data — Automated Bicycle Counter Network |
 | `commute_trends_area.csv` | Inbound commuter mode shares into central Melbourne (2001–2021) | ABS Census of Population and Housing — Method of Travel to Work (2001–2021) |
-| `safety_perception_likert.csv` | Five-point Likert agreement on perceived safety across six road facility types | Bicycle Network (publisher reference) |
+| `safety_perception_likert.csv` | Five-point Likert agreement on perceived safety across six road facility types | Bicycle Network — Rider Safety & Infrastructure Perception Survey |
 | `trip_purpose_radial.csv` | Share of bicycle trips, annual trips and average distance by trip purpose | Transport Victoria — Victorian Integrated Survey of Travel and Activity (VISTA) |
 | `corridor_gender_split.csv` | Morning-peak rider counts by gender across six Melbourne corridors | City of Melbourne / Bicycle Network — Annual Bike Counts (Super Tuesday) |
 
@@ -93,7 +93,7 @@ City of Melbourne / Bicycle Network Annual Bike Counts (Super Tuesday) 2017 surv
 
 [Source reference](https://data.melbourne.vic.gov.au/) · [Chart data](hourly_volume_patterns.csv)
 
-City of Melbourne Open Data (publisher reference), aggregated average hourly cyclist counts across days of the week.
+City of Melbourne Open Data — Automated Bicycle Counter Network, aggregated average hourly cyclist counts across days of the week.
 
 <a id="figure-8"></a>
 
@@ -109,7 +109,7 @@ Australian Bureau of Statistics (ABS) Census of Population and Housing — Metho
 
 [Source reference](https://www.bicyclenetwork.com.au/) · [Chart data](safety_perception_likert.csv)
 
-Bicycle Network (publisher reference), five-point Likert scale responses across six road and bicycle facility types.
+Bicycle Network — Rider Safety & Infrastructure Perception Survey, five-point Likert scale responses across six road and bicycle facility types.
 
 <a id="figure-10"></a>
 
