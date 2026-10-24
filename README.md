@@ -1,3 +1,7 @@
+Repository: [https://github.com/edward6iu/FIT3179-A2-DATAVIS-master](https://github.com/edward6iu/FIT3179-A2-DATAVIS-master)
+
+Website: [https://edward6iu.github.io/FIT3179-A2-DATAVIS-master/](https://edward6iu.github.io/FIT3179-A2-DATAVIS-master/)
+
 # Pedalling Ahead: Melbourne’s Cycling Commute Landscape
 
 FIT3179 Data Visualisation 2 · Yuxiang Liu · 3311 6091
@@ -36,17 +40,3 @@ Figure 6 uses the City of Melbourne / Bicycle Network Annual Bike Counts (Super 
 
 See [data/README.md](data/README.md) for the exact sources, inventory and processing details. These source checks cover the replacement allocation data and Figure 6's survey/boundary data; they do not establish provenance for the other datasets inherited from the project. The counter CSV can be rebuilt with `python scripts/prepare_bike_counts.py` using the retained original API export.
 
-## Preview and submission
-
-From this directory run `python -m http.server 8000` and open http://localhost:8000. Internet is required for CDN libraries and fonts.
-
-- Check all 11 charts and interactions on the public GitHub Pages deployment and a small laptop screen.
-- Submit the actual hand-drawn A4 sketch as a PDF; it should correspond to the four-section layout. No sketch is supplied here.
-- Complete the Moodle template with domain, audience, purpose, sources/creation process and What/Why/How rationale.
-- Ensure AI acknowledgement reflects all assistance and prepare for the interview.
-
-Repository: https://github.com/edward6iu/FIT3179-A2-DATAVIS-master
-
-Website: https://edward6iu.github.io/FIT3179-A2-DATAVIS-master/
-
-Local edits do not automatically update the live deployment.
