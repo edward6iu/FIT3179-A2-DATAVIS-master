@@ -47,4 +47,6 @@ From this directory run `python -m http.server 8000` and open http://localhost:8
 
 Repository: https://github.com/edward6iu/FIT3179-A2-DATAVIS-master
 
+Website: https://edward6iu.github.io/FIT3179-A2-DATAVIS-master/
+
 Local edits do not automatically update the live deployment.
