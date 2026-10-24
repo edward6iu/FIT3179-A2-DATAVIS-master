@@ -1,0 +1,832 @@
+/* ==========================================================================
+   FIT3179 Data Visualisation 2 — Cycling for Transport in Greater Melbourne
+   Design System & Master Stylesheet: Editorial Analytics Theme
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties / Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Palettes - Melbourne Cycling & Active Transit */
+  --primary: #059669;            /* Deep Emerald Green */
+  --primary-hover: #047857;
+  --primary-dark: #064e3b;
+  --primary-light: #ecfdf5;
+  --primary-border: #a7f3d0;
+  --primary-glow: rgba(16, 185, 129, 0.2);
+
+  --secondary: #0284c7;          /* Transit Teal / Blue */
+  --secondary-hover: #0369a1;
+  --secondary-light: #f0f9ff;
+  --secondary-border: #bae6fd;
+
+  --accent-amber: #d97706;       /* Cautionary Warning */
+  --accent-amber-light: #fffbeb;
+  --accent-rose: #e11d48;        /* Danger / Inequity Gap */
+  --accent-rose-light: #fff1f2;
+
+  /* Neutrals & Surfaces */
+  --bg-canvas: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-subtle: #f1f5f9;
+  
+  --text-primary: #0f172a;       /* Slate 900 */
+  --text-secondary: #334155;     /* Slate 700 */
+  --text-muted: #64748b;         /* Slate 500 */
+  --text-light: #94a3b8;         /* Slate 400 */
+
+  --border-subtle: #f1f5f9;
+  --border-default: #e2e8f0;
+  --border-hover: #cbd5e1;
+
+  /* Elevation Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 2px 4px 0 rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 10px 25px -3px rgba(15, 23, 42, 0.07), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 8px -2px rgba(15, 23, 42, 0.02);
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Layout */
+  --max-width: 1180px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --nav-height: 56px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Global Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 20px);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  background-color: var(--bg-canvas);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(5, 150, 105, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(2, 132, 199, 0.02) 0%, transparent 40%);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+/* Accessible Skip Link */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  background: var(--primary);
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s ease-in-out;
+  box-shadow: var(--shadow-md);
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  margin-top: 0;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(2.1rem, 4vw, 3.1rem); letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.5rem, 2.5vw, 1.95rem); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+h3 { font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+h4 { font-size: 1.05rem; font-weight: 600; }
+
+p {
+  margin: 0 0 1rem 0;
+  font-size: 0.975rem;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease-in-out;
+}
+
+a:hover {
+  color: var(--secondary-hover);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   3. Header / Hero Section
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: relative;
+  background: radial-gradient(130% 120% at 50% 0%, #102a22 0%, #0c1824 55%, #070d17 100%);
+  color: #ffffff;
+  padding: 4.5rem 1.5rem 3.5rem 1.5rem;
+  border-bottom: 3px solid var(--primary);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/* Subtle background accent glow */
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  right: -100px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: 5%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.header-inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #6ee7b7;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background-color: #34d399;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #34d399;
+}
+
+.site-header h1 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-size: 1.18rem;
+  color: #cbd5e1;
+  max-width: 820px;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+/* Hero Byline Metadata Chips */
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 1.25rem 0 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.byline > div {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 0.45rem 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+}
+
+.byline dt {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.byline dt::after {
+  content: ":";
+}
+
+.byline dd {
+  margin: 0;
+  color: #f8fafc;
+  font-weight: 500;
+}
+
+.byline dd a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.byline dd a:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   4. Sticky Modern Navigation Bar
+   -------------------------------------------------------------------------- */
+.section-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 15px -3px rgba(15, 23, 42, 0.04);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-nav ul {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.55rem 1rem;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.section-nav li {
+  margin: 0;
+}
+
+.section-nav a {
+  display: inline-block;
+  color: #475569;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.section-nav a:hover {
+  color: var(--primary-dark);
+  background-color: var(--primary-light);
+  border-color: var(--primary-border);
+  text-decoration: none;
+}
+
+.section-nav a.active {
+  color: #ffffff;
+  background-color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   5. Page Layout & Intro Section
+   -------------------------------------------------------------------------- */
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.intro {
+  background: #ffffff;
+  border: 1px solid var(--border-default);
+  border-left: 5px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  margin-bottom: 2.75rem;
+  box-shadow: var(--shadow-card);
+}
+
+p.lead {
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #1e293b;
+  margin: 0;
+}
+
+p.lead strong {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   6. Story Sections & Section Headers
+   -------------------------------------------------------------------------- */
+.story-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2.25rem 1.5rem;
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.story-section:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-lg);
+}
+
+.section-header {
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary) 0%, #10b981 100%);
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 3px 8px rgba(5, 150, 105, 0.25);
+}
+
+.section-intro {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 840px;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Metric Cards (KPI Rows)
+   -------------------------------------------------------------------------- */
+.metric-row {
+  margin-bottom: 1rem;
+}
+
+.metric-card {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.35rem 1.2rem;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.metric-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), #34d399);
+}
+
+/* Staggered accent stripes on metric cards */
+.pure-u-sm-1-2:nth-child(2) .metric-card::before {
+  background: linear-gradient(90deg, var(--secondary), #38bdf8);
+}
+.pure-u-sm-1-2:nth-child(3) .metric-card::before {
+  background: linear-gradient(90deg, var(--accent-amber), #fbbf24);
+}
+.pure-u-sm-1-2:nth-child(4) .metric-card::before {
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+}
+
+.metric-value {
+  font-family: var(--font-heading);
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 0.45rem;
+  letter-spacing: -0.03em;
+  display: block;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   8. Visualisation Containers & Figure Cards
+   -------------------------------------------------------------------------- */
+.vis-card {
+  background: #ffffff;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.vis-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+.vis-container {
+  width: 100%;
+  min-height: 380px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vis-container.vis-tall {
+  min-height: 520px;
+}
+
+figcaption {
+  font-size: 0.835rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 0.85rem;
+  margin-top: 0.85rem;
+  line-height: 1.5;
+}
+
+figcaption strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   9. Storytelling Prose, Side Notes & Callout Alerts
+   -------------------------------------------------------------------------- */
+.prose {
+  font-size: 0.975rem;
+}
+
+.prose p {
+  color: #334155;
+  line-height: 1.65;
+}
+
+.prose-wide {
+  max-width: 100%;
+}
+
+.side-notes {
+  padding: 0.25rem 0.5rem;
+}
+
+.side-notes h3 {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+}
+
+/* Callout Alert Boxes */
+.callout {
+  background-color: var(--primary-light);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.15rem 1.35rem;
+  margin: 1.25rem 0;
+  font-size: 0.925rem;
+  color: #064e3b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.callout strong {
+  color: #022c22;
+}
+
+.callout-label {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary-dark);
+  background-color: rgba(5, 150, 105, 0.12);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.callout-accent {
+  background-color: var(--accent-rose-light);
+  border-left-color: var(--accent-rose);
+  color: #881337;
+}
+
+.callout-accent strong {
+  color: #4c0519;
+}
+
+.callout-accent .callout-label {
+  color: #9f1239;
+  background-color: rgba(225, 29, 72, 0.14);
+}
+
+/* --------------------------------------------------------------------------
+   10. Diurnal Flow Highlights / Comparison Grid
+   -------------------------------------------------------------------------- */
+.comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 1rem 0;
+}
+
+.comparison-item {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  border-top: 3px solid var(--secondary);
+  padding: 1.25rem 1.35rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comparison-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  background: #ffffff;
+}
+
+.comparison-figure {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.comparison-item p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   11. Pure.css Gutters & Layout System
+   -------------------------------------------------------------------------- */
+.gutters {
+  margin-left: -12px !important;
+  margin-right: -12px !important;
+}
+
+.gutters > [class*="pure-u"] {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  margin-bottom: 24px;
+}
+
+.gutters > [class*="pure-u"]:last-child {
+  margin-bottom: 24px;
+}
+
+.pure-g {
+  letter-spacing: normal !important;
+}
+
+.pure-g > [class*="pure-u"] {
+  font-family: var(--font-body);
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer Section
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: #090f1d;
+  color: #94a3b8;
+  padding: 4rem 1.5rem 3rem 1.5rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--primary);
+  position: relative;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer-heading {
+  font-family: var(--font-heading);
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.sources {
+  padding-left: 1.25rem;
+  margin: 0 0 1.75rem 0;
+}
+
+.sources li {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  color: #94a3b8;
+}
+
+.sources em {
+  color: #cbd5e1;
+}
+
+.sources a, .site-footer a {
+  color: #38bdf8;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.sources a:hover, .site-footer a:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+.site-footer p {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.site-footer strong {
+  color: #f1f5f9;
+}
+
+.tech-note {
+  font-size: 0.8rem !important;
+  color: #64748b !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. Vega Embed SVG Clean Overrides
+   -------------------------------------------------------------------------- */
+.vega-embed {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.vega-embed summary {
+  opacity: 0.35;
+  transition: opacity 0.2s ease;
+}
+
+.vega-embed:hover summary {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   14. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  .site-header {
+    padding: 3rem 1rem 2.25rem 1rem;
+  }
+
+  .site-header h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+  }
+
+  .section-nav ul {
+    gap: 0.25rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .section-nav a {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .story-section {
+    padding: 1.75rem 1.25rem 1rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 2rem;
+  }
+
+  .vis-container {
+    min-height: 320px;
+  }
+
+  .vis-container.vis-tall {
+    min-height: 400px;
+  }
+
+  .byline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .metric-value {
+    font-size: 2rem;
+  }
+}
+
+/* Allow grid children to shrink; do not hide layout overflow. */
+.pure-g { display: flex; flex-wrap: wrap; }
+.pure-g > [class*="pure-u"], .vis-card, .vis-container { min-width: 0; }
+.spending-detail { margin: 1.5rem 0; }
+.vega-embed > svg { max-width: 100%; }
+
+#map-symbols .vega-bindings { width: 100%; font-size: 0.85rem; }
+#map-symbols .vega-bindings label { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+
+.council-key { margin: 0.75rem 0 1.25rem; }
+.council-key > div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.45rem 0; border-bottom: 1px solid var(--border-default); }
+.council-key dt { color: var(--text-primary); }
+.council-key dd { margin: 0; color: #047857; font-weight: 700; font-variant-numeric: tabular-nums; }

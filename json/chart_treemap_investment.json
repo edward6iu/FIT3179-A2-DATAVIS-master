@@ -1,0 +1,245 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Treemap of five-year planned allocations for six selected Merri-bek transport programs. Source: adopted 2026\u20132030 budget, Appendix B, PDF pages 104\u2013105. Excludes carry-forward; not all transport or cycling-only expenditure.",
+  "width": 800,
+  "height": 340,
+  "padding": 8,
+  "title": {
+    "text": "Where $14.24 million is allocated",
+    "subtitle": [
+      "Six selected Merri-bek transport programs, 2026\u201327 to 2030\u201331.",
+      "Area = five-year planned allocation; hover for the full program name."
+    ],
+    "anchor": "start"
+  },
+  "data": [
+    {
+      "name": "spend",
+      "url": "data/merri_bek_transport_budget.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "budget_aud": "number"
+        }
+      },
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": [
+            "program",
+            "source_program"
+          ],
+          "fields": [
+            "budget_aud"
+          ],
+          "ops": [
+            "sum"
+          ],
+          "as": [
+            "budget_aud"
+          ]
+        },
+        {
+          "type": "formula",
+          "expr": "'total'",
+          "as": "parent"
+        }
+      ]
+    },
+    {
+      "name": "hierarchyRoot",
+      "values": [
+        {
+          "program": "total",
+          "parent": null,
+          "budget_aud": 0
+        }
+      ]
+    },
+    {
+      "name": "tree",
+      "source": [
+        "spend",
+        "hierarchyRoot"
+      ],
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "program",
+          "parentKey": "parent"
+        },
+        {
+          "type": "treemap",
+          "field": "budget_aud",
+          "sort": {
+            "field": "value",
+            "order": "descending"
+          },
+          "method": "squarify",
+          "size": [
+            {
+              "signal": "width"
+            },
+            {
+              "signal": "height"
+            }
+          ],
+          "paddingInner": 3,
+          "paddingOuter": 0
+        }
+      ]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "!datum.children"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [
+        "Bicycle facilities",
+        "Planning & design",
+        "Road safety",
+        "School travel",
+        "Streets for People",
+        "Walking facilities"
+      ],
+      "range": [
+        "#0284c7",
+        "#0f172a",
+        "#d97706",
+        "#059669",
+        "#7c3aed",
+        "#64748b"
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "enter": {
+          "fill": {
+            "scale": "color",
+            "field": "program"
+          }
+        },
+        "update": {
+          "x": {
+            "field": "x0"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 1
+          },
+          "tooltip": {
+            "signal": "{'Program':datum.source_program, 'Financial years':'2026-27 to 2030-31', 'Planned allocation (AUD)':format(datum.budget_aud, '$,.0f')}"
+          }
+        },
+        "hover": {
+          "stroke": {
+            "value": "#111827"
+          },
+          "strokeWidth": {
+            "value": 3
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "(datum.x0+datum.x1)/2"
+          },
+          "y": {
+            "signal": "(datum.y0+datum.y1)/2-8"
+          },
+          "text": {
+            "field": "program"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fill": {
+            "value": "white"
+          },
+          "font": {
+            "value": "Inter"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": 600
+          },
+          "limit": {
+            "signal": "max(0,datum.x1-datum.x0-12)"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "(datum.x0+datum.x1)/2"
+          },
+          "y": {
+            "signal": "(datum.y0+datum.y1)/2+12"
+          },
+          "text": {
+            "signal": "format(datum.budget_aud, '$,.0f')"
+          },
+          "align": {
+            "value": "center"
+          },
+          "fill": {
+            "value": "white"
+          },
+          "font": {
+            "value": "Inter"
+          },
+          "fontSize": {
+            "value": 12
+          }
+        }
+      }
+    }
+  ]
+}

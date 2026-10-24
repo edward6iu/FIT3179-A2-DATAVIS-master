@@ -1,0 +1,31 @@
+{
+  "publisher": "Merri-bek City Council",
+  "title": "Adopted Budget 2026–2030",
+  "source_url": "https://www.merri-bek.vic.gov.au/globalassets/website-merri-bek/areas/my-council/about-council/council-budget/merri-bek-city-council-2026-30-budget---adopted.pdf",
+  "landing_page": "https://www.merri-bek.vic.gov.au/my-council/about-council/council-budget/",
+  "accessed": "2026-10-24",
+  "pdf_pages": [
+    104,
+    105
+  ],
+  "table": "Appendix B: New Capital Works Expenditure – Years 1 to 5",
+  "source_sha256": "156dd3b3951ea828d98591a420e49f1514663c5ed5854dab7bf66f02ee25ae32",
+  "units": "Australian dollars, nominal budget allocations; not actual expenditure",
+  "scope": "Six selected recurring programs within the Transport category, including walking, road safety and planning as well as cycling. Not the entire council transport budget or a cycling-only total.",
+  "processing": [
+    "Manually transcribed annual columns for 2026-27 through 2030-31, checked against PDF text and rendered tables.",
+    "Dashes in these expenditure cells are encoded as zero planned allocation, not missing observations.",
+    "All six selected rows have no carry-forward allocation. The carry-forward column is excluded.",
+    "Bump chart calculates competition rank within these six programs each year; equal amounts share a rank.",
+    "Treemap sums the five annual amounts by program; total $14,242,654."
+  ],
+  "program_totals_aud": {
+    "Bicycle facilities": 920000,
+    "Planning & design": 4395000,
+    "Road safety": 4077654,
+    "School travel": 2500000,
+    "Streets for People": 960000,
+    "Walking facilities": 1390000
+  },
+  "supersedes": "lga_infrastructure_investment.csv: original source could not be established; removed from active data."
+}

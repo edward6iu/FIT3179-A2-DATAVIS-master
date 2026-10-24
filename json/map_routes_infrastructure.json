@@ -1,0 +1,114 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Advanced Idiom 3 - Route (line) map. Strategic cycling corridors coloured and dashed by protection level (redundant encoding for colour-blind readers) and sized by average daily riders. Click a legend entry to isolate one tier. Projection is centred on the Melbourne CBD and its scale/translate are tied to the container width so the map stays responsive.",
+  "title": {
+    "text": "Protected paths radiate from the CBD, but painted lanes still fill the gaps",
+    "subtitle": "Key cycling corridors by protection level; line width = average daily riders. Click the legend to filter."
+  },
+  "width": "container",
+  "height": 500,
+  "projection": {
+    "type": "mercator",
+    "center": [144.9631, -37.8136],
+    "scale": {"expr": "max(width, 320) * 140"},
+    "translate": {"expr": "[width / 2, height / 2]"}
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/melbourne_lgas.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {"type": "geoshape", "fill": "#f1f5f9", "stroke": "#cbd5e1", "strokeWidth": 0.8}
+    },
+    {
+      "data": {
+        "url": "data/cycling_routes.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "transform": [
+        {"calculate": "datum.properties.route_name", "as": "route"},
+        {"calculate": "datum.properties.quality_tier", "as": "tier"},
+        {"calculate": "datum.properties.length_km", "as": "length_km"},
+        {"calculate": "datum.properties.daily_volume", "as": "daily_volume"}
+      ],
+      "params": [
+        {
+          "name": "tierSelect",
+          "select": {"type": "point", "fields": ["tier"]},
+          "bind": "legend"
+        }
+      ],
+      "mark": {"type": "geoshape", "filled": false, "strokeCap": "round", "cursor": "pointer"},
+      "encoding": {
+        "color": {
+          "field": "tier",
+          "type": "nominal",
+          "title": "Protection level",
+          "scale": {
+            "domain": ["Separated Off-Road", "Protected On-Road", "Painted On-Road Lane"],
+            "range": ["#065f46", "#10b981", "#d97706"]
+          },
+          "legend": {"orient": "bottom-left", "fillColor": "#ffffffee", "padding": 8, "cornerRadius": 6, "symbolType": "stroke", "symbolStrokeWidth": 3}
+        },
+        "strokeDash": {
+          "field": "tier",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Separated Off-Road", "Protected On-Road", "Painted On-Road Lane"],
+            "range": [[1, 0], [1, 0], [6, 4]]
+          },
+          "legend": null
+        },
+        "strokeWidth": {
+          "field": "daily_volume",
+          "type": "quantitative",
+          "title": "Avg daily riders",
+          "scale": {"range": [1.5, 6]},
+          "legend": {"orient": "bottom-right", "fillColor": "#ffffffee", "padding": 8, "cornerRadius": 6, "format": ","}
+        },
+        "opacity": {
+          "condition": {"param": "tierSelect", "value": 1},
+          "value": 0.12
+        },
+        "tooltip": [
+          {"field": "route", "type": "nominal", "title": "Corridor"},
+          {"field": "tier", "type": "nominal", "title": "Protection level"},
+          {"field": "length_km", "type": "quantitative", "title": "Length (km)", "format": ".1f"},
+          {"field": "daily_volume", "type": "quantitative", "title": "Avg daily riders", "format": ","}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{"lon": 144.9631, "lat": -37.8136}]},
+      "mark": {"type": "point", "shape": "circle", "size": 1400, "filled": false, "stroke": "#0f172a", "strokeDash": [3, 3], "strokeWidth": 1.2},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"lon": 144.9631, "lat": -37.8136, "text": "CBD: highest route density"},
+          {"lon": 144.960, "lat": -37.765, "text": "Sydney Rd: painted lane only"}
+        ]
+      },
+      "mark": {"type": "text", "align": "right", "dx": -24, "dy": -20, "fontSize": 10.5, "fontWeight": 700, "fill": "#0f172a"},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "text", "type": "nominal"}
+      }
+    },
+    {
+      "data": {"values": [{"lon": 144.975, "lat": -37.845, "text": "St Kilda Rd: busiest protected lane"}]},
+      "mark": {"type": "text", "align": "left", "dx": 10, "dy": 4, "fontSize": 10.5, "fontWeight": 700, "fill": "#065f46"},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "text", "type": "nominal"}
+      }
+    }
+  ]
+}

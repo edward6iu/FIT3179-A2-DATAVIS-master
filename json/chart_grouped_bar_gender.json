@@ -1,0 +1,65 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Standard Idiom 2 - Grouped (horizontal) bar chart. Super Tuesday morning-peak riders by gender at six key corridors. Horizontal orientation keeps long corridor names readable on narrow screens. Corridors are sorted by female share, which is printed beside each female bar.",
+  "title": {
+    "text": "Women make up as little as 17% of riders on some corridors",
+    "subtitle": "Super Tuesday AM-peak riders (7–9 am) by gender; % = female share. Sorted by female share."
+  },
+  "width": "container",
+  "height": 340,
+  "data": {"url": "data/corridor_gender_split.csv"},
+  "transform": [
+    {"joinaggregate": [{"op": "sum", "field": "riders", "as": "corridor_total"}], "groupby": ["corridor"]},
+    {"calculate": "datum.riders / datum.corridor_total", "as": "share"},
+    {"calculate": "datum.gender === 'Female' ? datum.share : 0", "as": "f_share_part"},
+    {"joinaggregate": [{"op": "max", "field": "f_share_part", "as": "female_share"}], "groupby": ["corridor"]}
+  ],
+  "encoding": {
+    "y": {
+      "field": "corridor",
+      "type": "nominal",
+      "title": null,
+      "sort": {"field": "female_share", "op": "max", "order": "descending"},
+      "axis": {"ticks": false, "domain": false, "labelLimit": 180}
+    },
+    "yOffset": {"field": "gender", "type": "nominal", "sort": ["Female", "Male"]},
+    "x": {
+      "field": "riders",
+      "type": "quantitative",
+      "title": "Riders counted (7–9 am)",
+      "scale": {"domain": [0, 1200]},
+      "axis": {"format": ",", "tickCount": 4}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "bar", "cornerRadiusEnd": 3},
+      "encoding": {
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "title": null,
+          "sort": ["Female", "Male"],
+          "scale": {"domain": ["Female", "Male"], "range": ["#0d9488", "#94a3b8"]},
+          "legend": {"orient": "top", "direction": "horizontal"}
+        },
+        "tooltip": [
+          {"field": "corridor", "type": "nominal", "title": "Corridor"},
+          {"field": "gender", "type": "nominal", "title": "Gender"},
+          {"field": "riders", "type": "quantitative", "title": "Riders", "format": ","},
+          {"field": "share", "type": "quantitative", "title": "Share of corridor", "format": ".0%"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.gender === 'Female'"}],
+      "mark": {"type": "text", "align": "left", "dx": 4, "fontSize": 10.5, "fontWeight": 700, "fill": "#0f766e"},
+      "encoding": {"text": {"field": "share", "type": "quantitative", "format": ".0%"}}
+    },
+    {
+      "transform": [{"filter": "datum.gender === 'Male' && datum.female_share < 0.2"}],
+      "mark": {"type": "text", "align": "left", "dx": 6, "fontSize": 10.5, "fontStyle": "italic", "fill": "#b91c1c"},
+      "encoding": {"text": {"value": "← lowest female share"}}
+    }
+  ]
+}

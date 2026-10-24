@@ -1,0 +1,13 @@
+age_group,gender,cycling_rate_pct
+18-29,Male,23.4
+18-29,Female,9.8
+30-39,Male,26.8
+30-39,Female,11.5
+40-49,Male,24.2
+40-49,Female,9.1
+50-59,Male,19.5
+50-59,Female,6.8
+60-69,Male,14.1
+60-69,Female,4.5
+70+,Male,7.3
+70+,Female,1.8

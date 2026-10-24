@@ -1,0 +1,91 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Advanced Idiom 7 - Diverging stacked bar (Likert) chart. Responses to 'I feel safe riding on this type of road'. Bars are centred on the middle of the Neutral category; offsets are computed in-spec (calculate + joinaggregate + window), so the CSV only needs raw percentages. Road types are sorted by total positive agreement.",
+  "title": {
+    "text": "Separation feels safe; painted lines and busy roads do not",
+    "subtitle": "\"I feel safe riding on this type of road\" – share of respondents by response."
+  },
+  "width": "container",
+  "height": 280,
+  "data": {"url": "data/safety_perception_likert.csv"},
+  "transform": [
+    {"calculate": "datum.order <= 2 ? datum.pct : (datum.order == 3 ? datum.pct / 2 : 0)", "as": "neg_part"},
+    {"calculate": "datum.order >= 4 ? datum.pct : 0", "as": "pos_part"},
+    {
+      "joinaggregate": [
+        {"op": "sum", "field": "neg_part", "as": "offset"},
+        {"op": "sum", "field": "pos_part", "as": "positive_total"}
+      ],
+      "groupby": ["facility"]
+    },
+    {
+      "window": [{"op": "sum", "field": "pct", "as": "cum"}],
+      "groupby": ["facility"],
+      "sort": [{"field": "order", "order": "ascending"}],
+      "frame": [null, 0]
+    },
+    {"calculate": "datum.cum - datum.offset", "as": "x_end"},
+    {"calculate": "datum.x_end - datum.pct", "as": "x_start"},
+    {
+      "calculate": "datum.order == 5 && datum.facility == 'Painted On-Road Bike Lane' ? 'Only 20% feel safe' : (datum.order == 5 && datum.facility == 'Arterial Road (No Bike Lane)' ? '95% feel unsafe' : '')",
+      "as": "callout"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "bar", "height": {"band": 0.7}},
+      "encoding": {
+        "y": {
+          "field": "facility",
+          "type": "nominal",
+          "title": null,
+          "sort": {"field": "positive_total", "op": "max", "order": "descending"},
+          "axis": {"ticks": false, "domain": false, "labelLimit": 170}
+        },
+        "x": {
+          "field": "x_start",
+          "type": "quantitative",
+          "title": "← Feel unsafe          Feel safe →",
+          "scale": {"domain": [-100, 100]},
+          "axis": {"labelExpr": "abs(datum.value) + '%'", "values": [-100, -50, 0, 50, 100]}
+        },
+        "x2": {"field": "x_end"},
+        "color": {
+          "field": "sentiment",
+          "type": "nominal",
+          "title": null,
+          "sort": ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"],
+          "scale": {
+            "domain": ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"],
+            "range": ["#b91c1c", "#f87171", "#cbd5e1", "#34d399", "#047857"]
+          },
+          "legend": {"orient": "top", "direction": "horizontal", "columns": 5}
+        },
+        "tooltip": [
+          {"field": "facility", "type": "nominal", "title": "Road type"},
+          {"field": "sentiment", "type": "nominal", "title": "Response"},
+          {"field": "pct", "type": "quantitative", "title": "Respondents (%)"},
+          {"field": "positive_total", "type": "quantitative", "title": "Total feel safe (%)"}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{"zero": 0}]},
+      "mark": {"type": "rule", "color": "#0f172a", "strokeWidth": 1.2},
+      "encoding": {"x": {"field": "zero", "type": "quantitative"}}
+    },
+    {
+      "transform": [{"filter": "datum.callout != ''"}],
+      "mark": {"type": "text", "align": "left", "dx": 5, "fontSize": 10.5, "fontWeight": 700, "fill": "#b91c1c"},
+      "encoding": {
+        "y": {
+          "field": "facility",
+          "type": "nominal",
+          "sort": {"field": "positive_total", "op": "max", "order": "descending"}
+        },
+        "x": {"field": "x_end", "type": "quantitative"},
+        "text": {"field": "callout", "type": "nominal"}
+      }
+    }
+  ]
+}

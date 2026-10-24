@@ -1,0 +1,101 @@
+id,row,col,mode,share_pct,description
+1,1,1,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+2,1,2,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+3,1,3,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+4,1,4,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+5,1,5,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+6,1,6,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+7,1,7,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+8,1,8,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+9,1,9,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+10,1,10,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+11,2,1,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+12,2,2,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+13,2,3,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+14,2,4,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+15,2,5,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+16,2,6,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+17,2,7,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+18,2,8,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+19,2,9,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+20,2,10,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+21,3,1,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+22,3,2,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+23,3,3,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+24,3,4,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+25,3,5,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+26,3,6,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+27,3,7,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+28,3,8,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+29,3,9,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+30,3,10,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+31,4,1,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+32,4,2,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+33,4,3,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+34,4,4,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+35,4,5,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+36,4,6,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+37,4,7,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+38,4,8,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+39,4,9,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+40,4,10,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+41,5,1,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+42,5,2,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+43,5,3,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+44,5,4,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+45,5,5,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+46,5,6,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+47,5,7,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+48,5,8,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+49,5,9,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+50,5,10,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+51,6,1,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+52,6,2,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+53,6,3,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+54,6,4,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+55,6,5,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+56,6,6,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+57,6,7,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+58,6,8,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+59,6,9,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+60,6,10,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+61,7,1,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+62,7,2,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+63,7,3,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+64,7,4,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+65,7,5,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+66,7,6,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+67,7,7,Private Motor Vehicle,67,Private Motor Vehicle accounts for 67% of Melbourne commuter trips
+68,7,8,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+69,7,9,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+70,7,10,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+71,8,1,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+72,8,2,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+73,8,3,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+74,8,4,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+75,8,5,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+76,8,6,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+77,8,7,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+78,8,8,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+79,8,9,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+80,8,10,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+81,9,1,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+82,9,2,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+83,9,3,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+84,9,4,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+85,9,5,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+86,9,6,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+87,9,7,Public Transport,20,Public Transport accounts for 20% of Melbourne commuter trips
+88,9,8,Working from Home,8,Working from Home accounts for 8% of Melbourne commuter trips
+89,9,9,Working from Home,8,Working from Home accounts for 8% of Melbourne commuter trips
+90,9,10,Working from Home,8,Working from Home accounts for 8% of Melbourne commuter trips
+91,10,1,Working from Home,8,Working from Home accounts for 8% of Melbourne commuter trips
+92,10,2,Working from Home,8,Working from Home accounts for 8% of Melbourne commuter trips
+93,10,3,Working from Home,8,Working from Home accounts for 8% of Melbourne commuter trips
+94,10,4,Working from Home,8,Working from Home accounts for 8% of Melbourne commuter trips
+95,10,5,Working from Home,8,Working from Home accounts for 8% of Melbourne commuter trips
+96,10,6,Walking,3,Walking accounts for 3% of Melbourne commuter trips
+97,10,7,Walking,3,Walking accounts for 3% of Melbourne commuter trips
+98,10,8,Walking,3,Walking accounts for 3% of Melbourne commuter trips
+99,10,9,Cycling,2,Cycling accounts for 2% of Melbourne commuter trips
+100,10,10,Cycling,2,Cycling accounts for 2% of Melbourne commuter trips

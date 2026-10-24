@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Standard Idiom 1 - 100% stacked area chart. Share of inbound commuter trips to central Melbourne by mode, 2001–2021. Shares are derived in-spec (joinaggregate + calculate) so tooltips show exact percentages. A hover rule shows all modes for the selected Census year.",
+  "title": {
+    "text": "Cycling's share of trips into central Melbourne more than tripled in 20 years",
+    "subtitle": "Share of inbound commuter trips by mode, Census years 2001–2021. Hover for exact values."
+  },
+  "width": "container",
+  "height": 320,
+  "data": {"url": "data/commute_trends_area.csv"},
+  "transform": [
+    {"joinaggregate": [{"op": "sum", "field": "daily_trips_k", "as": "year_total"}], "groupby": ["year"]},
+    {"calculate": "datum.daily_trips_k / datum.year_total", "as": "share"},
+    {"calculate": "indexof(['Cycling', 'Walking', 'Public Transport', 'Private Car'], datum.mode)", "as": "mode_order"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": null,
+      "scale": {"domain": [2001, 2021], "nice": false},
+      "axis": {"format": "d", "values": [2001, 2006, 2011, 2016, 2021], "grid": false}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "area", "line": {"strokeWidth": 1, "stroke": "#ffffff"}, "opacity": 0.92},
+      "encoding": {
+        "y": {
+          "field": "share",
+          "type": "quantitative",
+          "stack": "zero",
+          "title": "Share of trips",
+          "axis": {"format": "%"},
+          "scale": {"domain": [0, 1]}
+        },
+        "color": {
+          "field": "mode",
+          "type": "nominal",
+          "title": "Mode",
+          "sort": ["Cycling", "Walking", "Public Transport", "Private Car"],
+          "scale": {
+            "domain": ["Cycling", "Walking", "Public Transport", "Private Car"],
+            "range": ["#047857", "#6ee7b7", "#7dd3fc", "#94a3b8"]
+          },
+          "legend": {"orient": "top", "direction": "horizontal", "title": null}
+        },
+        "order": {"field": "mode_order", "type": "quantitative"}
+      }
+    },
+    {
+      "transform": [{"pivot": "mode", "value": "share", "groupby": ["year"]}],
+      "params": [
+        {"name": "yearHover", "select": {"type": "point", "on": "pointerover", "clear": "pointerout", "fields": ["year"], "nearest": true}}
+      ],
+      "mark": {"type": "rule", "strokeWidth": 2, "color": "#0f172a"},
+      "encoding": {
+        "opacity": {"condition": {"param": "yearHover", "empty": false, "value": 0.7}, "value": 0},
+        "tooltip": [
+          {"field": "year", "type": "quantitative", "title": "Year", "format": "d"},
+          {"field": "Cycling", "type": "quantitative", "format": ".1%"},
+          {"field": "Walking", "type": "quantitative", "format": ".1%"},
+          {"field": "Public Transport", "type": "quantitative", "format": ".1%"},
+          {"field": "Private Car", "type": "quantitative", "format": ".1%"}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{"year": 2020.2}]},
+      "mark": {"type": "rule", "strokeDash": [4, 4], "color": "#0f172a", "strokeWidth": 1.2}
+    },
+    {
+      "data": {"values": [{"year": 2020.0, "y": 0.96, "text": "COVID-19: WFH"}]},
+      "mark": {"type": "text", "align": "right", "dx": -2, "fontSize": 10.5, "fontWeight": 700, "fill": "#0f172a"},
+      "encoding": {
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "text", "type": "nominal"}
+      }
+    },
+    {
+      "data": {"values": [{"year": 2002, "y": 0.13, "text": "Cycling: 1.9% (2001) → 6.6% (2021)"}]},
+      "mark": {"type": "text", "align": "left", "fontSize": 10.5, "fontWeight": 700, "fill": "#064e3b"},
+      "encoding": {
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "text", "type": "nominal"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Annual Bike Counts (Super Tuesday)",
+  "publisher": "City of Melbourne",
+  "data_provider": "Bicycle Network Australia",
+  "dataset_url": "https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/",
+  "api_export_url": "https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/annual-bike-counts-super-tuesday/exports/json",
+  "field_metadata_url": "https://data.melbourne.vic.gov.au/api/datasets/1.0/annual-bike-counts-super-tuesday/attachments/super_tuesday_bike_counts_metadata_pdf/",
+  "methodology_url": "https://bicyclenetwork.com.au/our-services/transport-surveys-and-data/super-counts/",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "retrieved": "2026-10-24",
+  "source_record_count": 352,
+  "records_by_year": {
+    "2010": 40,
+    "2011": 44,
+    "2012": 40,
+    "2013": 44,
+    "2014": 46,
+    "2015": 46,
+    "2016": 46,
+    "2017": 46
+  },
+  "selected_year": 2017,
+  "selected_sites": 46,
+  "raw_snapshot": "sources/super_tuesday_raw.json",
+  "raw_sha256": "cf2cedf50a5a56c628122ed6bae527d73c85fb37988a71443d91859cb5069565",
+  "processing": [
+    "Select every site in the maximum survey year present in this export. Metadata modification dates are not survey dates.",
+    "Copy published site_id, latitude, longitude and description without geocoding or coordinate rounding.",
+    "Rename published total to count_7_9am; verify it equals the sum of all eight morning 15-minute intervals.",
+    "Do not sum leg totals: those combine entries and exits and could double count movements.",
+    "Do not calculate daily averages, evening peaks or growth. Counts are survey observations, not unique people across all sites.",
+    "Use a linear zero-based Vega-Lite size scale: circle size represents pixel area."
+  ],
+  "scope": "Historical morning survey snapshot. Latest year in this particular public export, not a claim that 2017 is the latest survey ever conducted.",
+  "boundary": {
+    "dataset_url": "https://data.melbourne.vic.gov.au/explore/dataset/municipal-boundary/",
+    "export_url": "https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/municipal-boundary/exports/geojson",
+    "license": "CC BY 4.0",
+    "retrieved": "2026-10-24",
+    "processing": "Coordinates retained; ring winding normalised for D3/Vega spherical rendering. Contemporary boundary provides location context, not a historical 2017 boundary claim."
+  }
+}

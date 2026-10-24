@@ -1,0 +1,151 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Equal-angle coxcomb: each purpose occupies one fifth of the circle. Radius uses a zero-based square-root scale, making wedge area proportional to trip share.",
+  "title": {
+    "text": "Most bike trips are not commutes",
+    "subtitle": [
+      "Equal angles; wedge area represents share of trips.",
+      "Hover for percentages."
+    ]
+  },
+  "width": "container",
+  "height": 360,
+  "layer": [
+    {
+      "data": {
+        "url": "data/trip_purpose_radial.csv"
+      },
+      "encoding": {
+        "radius": {
+          "field": "share_pct",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "zero": true,
+            "range": [
+              0,
+              125
+            ]
+          }
+        },
+        "order": {
+          "field": "order",
+          "type": "quantitative"
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "arc",
+            "innerRadius": 0,
+            "stroke": "#ffffff",
+            "strokeWidth": 2,
+            "padAngle": 0
+          },
+          "encoding": {
+            "color": {
+              "field": "purpose",
+              "type": "nominal",
+              "title": "Trip purpose",
+              "sort": [
+                "Recreation & Exercise",
+                "Work Commuting",
+                "Utility & Shopping",
+                "Social & Dining",
+                "Education & School"
+              ],
+              "scale": {
+                "domain": [
+                  "Recreation & Exercise",
+                  "Work Commuting",
+                  "Utility & Shopping",
+                  "Social & Dining",
+                  "Education & School"
+                ],
+                "range": [
+                  "#064e3b",
+                  "#059669",
+                  "#34d399",
+                  "#7dd3fc",
+                  "#0284c7"
+                ]
+              },
+              "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "columns": 3
+              }
+            },
+            "tooltip": [
+              {
+                "field": "purpose",
+                "type": "nominal",
+                "title": "Purpose"
+              },
+              {
+                "field": "share_pct",
+                "type": "quantitative",
+                "title": "Share of trips (%)",
+                "format": ".1f"
+              },
+              {
+                "field": "trips_annual_million",
+                "type": "quantitative",
+                "title": "Trips per year (m)",
+                "format": ".1f"
+              },
+              {
+                "field": "avg_distance_km",
+                "type": "quantitative",
+                "title": "Avg distance (km)",
+                "format": ".1f"
+              }
+            ],
+            "theta": {
+              "field": "startAngle",
+              "type": "quantitative",
+              "scale": null
+            },
+            "theta2": {
+              "field": "endAngle"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "radiusOffset": 16,
+            "fontSize": 11,
+            "fontWeight": 600,
+            "fill": "#0f172a"
+          },
+          "encoding": {
+            "text": {
+              "field": "short_label",
+              "type": "nominal"
+            },
+            "theta": {
+              "field": "midAngle",
+              "type": "quantitative",
+              "scale": null
+            }
+          }
+        }
+      ],
+      "transform": [
+        {
+          "calculate": "(datum.order - 1) * 2 * PI / 5",
+          "as": "startAngle"
+        },
+        {
+          "calculate": "datum.order * 2 * PI / 5",
+          "as": "endAngle"
+        },
+        {
+          "calculate": "(datum.order - 0.5) * 2 * PI / 5",
+          "as": "midAngle"
+        }
+      ]
+    }
+  ]
+}

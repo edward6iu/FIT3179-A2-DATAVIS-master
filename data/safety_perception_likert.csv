@@ -1,0 +1,26 @@
+facility,sentiment,pct,signed_pct,order,polarity
+Separated Off-Road Path,Strongly Disagree,1,-1,1,Negative
+Separated Off-Road Path,Disagree,3,-3,2,Negative
+Separated Off-Road Path,Neutral,6,6,3,Neutral
+Separated Off-Road Path,Agree,38,38,4,Positive
+Separated Off-Road Path,Strongly Agree,52,52,5,Positive
+Protected On-Road Cycleway,Strongly Disagree,3,-3,1,Negative
+Protected On-Road Cycleway,Disagree,7,-7,2,Negative
+Protected On-Road Cycleway,Neutral,10,10,3,Neutral
+Protected On-Road Cycleway,Agree,46,46,4,Positive
+Protected On-Road Cycleway,Strongly Agree,34,34,5,Positive
+Painted On-Road Bike Lane,Strongly Disagree,28,-28,1,Negative
+Painted On-Road Bike Lane,Disagree,36,-36,2,Negative
+Painted On-Road Bike Lane,Neutral,16,16,3,Neutral
+Painted On-Road Bike Lane,Agree,16,16,4,Positive
+Painted On-Road Bike Lane,Strongly Agree,4,4,5,Positive
+Mixed Traffic (Quiet Street),Strongly Disagree,18,-18,1,Negative
+Mixed Traffic (Quiet Street),Disagree,29,-29,2,Negative
+Mixed Traffic (Quiet Street),Neutral,22,22,3,Neutral
+Mixed Traffic (Quiet Street),Agree,25,25,4,Positive
+Mixed Traffic (Quiet Street),Strongly Agree,6,6,5,Positive
+Arterial Road (No Bike Lane),Strongly Disagree,74,-74,1,Negative
+Arterial Road (No Bike Lane),Disagree,21,-21,2,Negative
+Arterial Road (No Bike Lane),Neutral,3,3,3,Neutral
+Arterial Road (No Bike Lane),Agree,2,2,4,Positive
+Arterial Road (No Bike Lane),Strongly Agree,0,0,5,Positive

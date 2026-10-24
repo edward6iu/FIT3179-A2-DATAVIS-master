@@ -1,0 +1,65 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Advanced Idiom 6 - Heatmap (matrix). Average riders per hour at City of Melbourne counters, by hour of day and day of week. Sequential green scale; weekday peak cells are outlined and annotated to show the twin commuter spikes.",
+  "title": {
+    "text": "Weekdays have two commuter rush hours; weekends peak at midday",
+    "subtitle": "Average riders per hour across City of Melbourne counters, by day and hour."
+  },
+  "width": "container",
+  "height": 280,
+  "padding": {"top": 22, "left": 5, "right": 5, "bottom": 5},
+  "data": {"url": "data/hourly_volume_patterns.csv"},
+  "encoding": {
+    "x": {
+      "field": "hour",
+      "type": "ordinal",
+      "title": "Hour of day",
+      "axis": {
+        "labelAngle": 0,
+        "labelExpr": "datum.value % 3 == 0 ? (datum.value < 10 ? '0' : '') + datum.value + ':00' : ''",
+        "ticks": false,
+        "domain": false
+      }
+    },
+    "y": {
+      "field": "day",
+      "type": "ordinal",
+      "title": null,
+      "sort": {"field": "day_order", "op": "min", "order": "ascending"},
+      "axis": {"ticks": false, "domain": false, "labelExpr": "slice(datum.value, 0, 3)"}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "rect", "cornerRadius": 2, "stroke": "#ffffff", "strokeWidth": 1},
+      "encoding": {
+        "color": {
+          "field": "cyclists",
+          "type": "quantitative",
+          "title": "Riders / hour",
+          "scale": {"scheme": "greens"},
+          "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 220, "format": ","}
+        },
+        "tooltip": [
+          {"field": "day", "type": "nominal", "title": "Day"},
+          {"field": "hour_label", "type": "nominal", "title": "Hour"},
+          {"field": "cyclists", "type": "quantitative", "title": "Avg riders / hour", "format": ","}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.day_order <= 5 && (datum.hour == 8 || datum.hour == 17)"}],
+      "mark": {"type": "rect", "fill": null, "stroke": "#0f172a", "strokeWidth": 1.5, "cornerRadius": 2}
+    },
+    {
+      "data": {
+        "values": [
+          {"hour": 8, "day": "Monday", "day_order": 1, "text": "8 AM peak"},
+          {"hour": 17, "day": "Monday", "day_order": 1, "text": "5 PM peak"}
+        ]
+      },
+      "mark": {"type": "text", "dy": -16, "fontSize": 11, "fontWeight": 700, "fill": "#0f172a"},
+      "encoding": {"text": {"field": "text", "type": "nominal"}}
+    }
+  ]
+}

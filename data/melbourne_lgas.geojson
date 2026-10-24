@@ -1,0 +1,713 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Yarra",
+        "short_name": "Yarra",
+        "region": "Inner Metro",
+        "commute_cycling_pct": 8.6,
+        "total_workers": 58200,
+        "bike_commuters": 5005,
+        "rank_2021": 1,
+        "center_lon": 144.995,
+        "center_lat": -37.805,
+        "label": "Yarra: 8.6%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.975,
+              -37.785
+            ],
+            [
+              145.015,
+              -37.785
+            ],
+            [
+              145.025,
+              -37.815
+            ],
+            [
+              145.01,
+              -37.835
+            ],
+            [
+              144.985,
+              -37.83
+            ],
+            [
+              144.975,
+              -37.8
+            ],
+            [
+              144.975,
+              -37.785
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Melbourne",
+        "short_name": "Melbourne",
+        "region": "Inner Metro",
+        "commute_cycling_pct": 5.4,
+        "total_workers": 94100,
+        "bike_commuters": 5081,
+        "rank_2021": 2,
+        "center_lon": 144.955,
+        "center_lat": -37.815,
+        "label": "Melbourne: 5.4%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.93,
+              -37.79
+            ],
+            [
+              144.975,
+              -37.785
+            ],
+            [
+              144.975,
+              -37.83
+            ],
+            [
+              144.95,
+              -37.84
+            ],
+            [
+              144.92,
+              -37.825
+            ],
+            [
+              144.93,
+              -37.79
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Merri-bek",
+        "short_name": "Merri-bek",
+        "region": "Inner-North Metro",
+        "commute_cycling_pct": 5.1,
+        "total_workers": 88400,
+        "bike_commuters": 4508,
+        "rank_2021": 3,
+        "center_lon": 144.96,
+        "center_lat": -37.74,
+        "label": "Merri-bek: 5.1%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.93,
+              -37.71
+            ],
+            [
+              144.98,
+              -37.71
+            ],
+            [
+              144.98,
+              -37.785
+            ],
+            [
+              144.935,
+              -37.785
+            ],
+            [
+              144.93,
+              -37.71
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Darebin",
+        "short_name": "Darebin",
+        "region": "Inner-North Metro",
+        "commute_cycling_pct": 4.2,
+        "total_workers": 79600,
+        "bike_commuters": 3343,
+        "rank_2021": 4,
+        "center_lon": 145.01,
+        "center_lat": -37.74,
+        "label": "Darebin: 4.2%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.98,
+              -37.7
+            ],
+            [
+              145.04,
+              -37.7
+            ],
+            [
+              145.04,
+              -37.785
+            ],
+            [
+              144.98,
+              -37.785
+            ],
+            [
+              144.98,
+              -37.7
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Port Phillip",
+        "short_name": "Port Phillip",
+        "region": "Inner-South Metro",
+        "commute_cycling_pct": 3.8,
+        "total_workers": 62500,
+        "bike_commuters": 2375,
+        "rank_2021": 5,
+        "center_lon": 144.96,
+        "center_lat": -37.86,
+        "label": "Port Phillip: 3.8%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.92,
+              -37.825
+            ],
+            [
+              144.95,
+              -37.84
+            ],
+            [
+              144.985,
+              -37.83
+            ],
+            [
+              144.995,
+              -37.885
+            ],
+            [
+              144.96,
+              -37.89
+            ],
+            [
+              144.93,
+              -37.85
+            ],
+            [
+              144.92,
+              -37.825
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Boroondara",
+        "short_name": "Boroondara",
+        "region": "Inner-East Metro",
+        "commute_cycling_pct": 2.1,
+        "total_workers": 85100,
+        "bike_commuters": 1787,
+        "rank_2021": 6,
+        "center_lon": 145.06,
+        "center_lat": -37.82,
+        "label": "Boroondara: 2.1%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              145.015,
+              -37.785
+            ],
+            [
+              145.105,
+              -37.785
+            ],
+            [
+              145.105,
+              -37.86
+            ],
+            [
+              145.025,
+              -37.86
+            ],
+            [
+              145.015,
+              -37.785
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Moonee Valley",
+        "short_name": "Moonee Valley",
+        "region": "Inner-West Metro",
+        "commute_cycling_pct": 1.6,
+        "total_workers": 61200,
+        "bike_commuters": 979,
+        "rank_2021": 7,
+        "center_lon": 144.89,
+        "center_lat": -37.755,
+        "label": "Moonee Valley: 1.6%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.86,
+              -37.72
+            ],
+            [
+              144.93,
+              -37.72
+            ],
+            [
+              144.935,
+              -37.785
+            ],
+            [
+              144.91,
+              -37.8
+            ],
+            [
+              144.86,
+              -37.76
+            ],
+            [
+              144.86,
+              -37.72
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Stonnington",
+        "short_name": "Stonnington",
+        "region": "Inner-East Metro",
+        "commute_cycling_pct": 2.3,
+        "total_workers": 59300,
+        "bike_commuters": 1364,
+        "rank_2021": 8,
+        "center_lon": 145.03,
+        "center_lat": -37.855,
+        "label": "Stonnington: 2.3%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.985,
+              -37.83
+            ],
+            [
+              145.07,
+              -37.83
+            ],
+            [
+              145.08,
+              -37.875
+            ],
+            [
+              144.995,
+              -37.875
+            ],
+            [
+              144.985,
+              -37.83
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Maribyrnong",
+        "short_name": "Maribyrnong",
+        "region": "Inner-West Metro",
+        "commute_cycling_pct": 1.9,
+        "total_workers": 47500,
+        "bike_commuters": 903,
+        "rank_2021": 9,
+        "center_lon": 144.88,
+        "center_lat": -37.8,
+        "label": "Maribyrnong: 1.9%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.86,
+              -37.76
+            ],
+            [
+              144.91,
+              -37.8
+            ],
+            [
+              144.93,
+              -37.79
+            ],
+            [
+              144.92,
+              -37.825
+            ],
+            [
+              144.87,
+              -37.835
+            ],
+            [
+              144.85,
+              -37.8
+            ],
+            [
+              144.86,
+              -37.76
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Glen Eira",
+        "short_name": "Glen Eira",
+        "region": "Middle-South Metro",
+        "commute_cycling_pct": 1.3,
+        "total_workers": 74800,
+        "bike_commuters": 972,
+        "rank_2021": 10,
+        "center_lon": 145.045,
+        "center_lat": -37.9,
+        "label": "Glen Eira: 1.3%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.995,
+              -37.875
+            ],
+            [
+              145.08,
+              -37.875
+            ],
+            [
+              145.09,
+              -37.935
+            ],
+            [
+              145.01,
+              -37.935
+            ],
+            [
+              144.995,
+              -37.875
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Bayside",
+        "short_name": "Bayside",
+        "region": "Middle-South Metro",
+        "commute_cycling_pct": 1.5,
+        "total_workers": 49200,
+        "bike_commuters": 738,
+        "rank_2021": 11,
+        "center_lon": 144.995,
+        "center_lat": -37.93,
+        "label": "Bayside: 1.5%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.96,
+              -37.89
+            ],
+            [
+              145.01,
+              -37.89
+            ],
+            [
+              145.03,
+              -37.98
+            ],
+            [
+              144.98,
+              -37.98
+            ],
+            [
+              144.96,
+              -37.89
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Banyule",
+        "short_name": "Banyule",
+        "region": "Middle-North Metro",
+        "commute_cycling_pct": 1.2,
+        "total_workers": 63400,
+        "bike_commuters": 761,
+        "rank_2021": 12,
+        "center_lon": 145.08,
+        "center_lat": -37.74,
+        "label": "Banyule: 1.2%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              145.04,
+              -37.7
+            ],
+            [
+              145.13,
+              -37.7
+            ],
+            [
+              145.12,
+              -37.785
+            ],
+            [
+              145.04,
+              -37.785
+            ],
+            [
+              145.04,
+              -37.7
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Whitehorse",
+        "short_name": "Whitehorse",
+        "region": "Middle-East Metro",
+        "commute_cycling_pct": 0.9,
+        "total_workers": 83900,
+        "bike_commuters": 755,
+        "rank_2021": 13,
+        "center_lon": 145.15,
+        "center_lat": -37.825,
+        "label": "Whitehorse: 0.9%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              145.105,
+              -37.785
+            ],
+            [
+              145.2,
+              -37.785
+            ],
+            [
+              145.2,
+              -37.865
+            ],
+            [
+              145.105,
+              -37.865
+            ],
+            [
+              145.105,
+              -37.785
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Monash",
+        "short_name": "Monash",
+        "region": "Middle-East Metro",
+        "commute_cycling_pct": 0.8,
+        "total_workers": 89200,
+        "bike_commuters": 714,
+        "rank_2021": 14,
+        "center_lon": 145.14,
+        "center_lat": -37.9,
+        "label": "Monash: 0.8%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              145.08,
+              -37.865
+            ],
+            [
+              145.2,
+              -37.865
+            ],
+            [
+              145.2,
+              -37.945
+            ],
+            [
+              145.08,
+              -37.945
+            ],
+            [
+              145.08,
+              -37.865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Hobsons Bay",
+        "short_name": "Hobsons Bay",
+        "region": "Middle-West Metro",
+        "commute_cycling_pct": 1.1,
+        "total_workers": 46100,
+        "bike_commuters": 507,
+        "rank_2021": 15,
+        "center_lon": 144.85,
+        "center_lat": -37.86,
+        "label": "Hobsons Bay: 1.1%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.8,
+              -37.825
+            ],
+            [
+              144.87,
+              -37.835
+            ],
+            [
+              144.92,
+              -37.86
+            ],
+            [
+              144.9,
+              -37.89
+            ],
+            [
+              144.78,
+              -37.88
+            ],
+            [
+              144.8,
+              -37.825
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "LGA_NAME": "City of Kingston",
+        "short_name": "Kingston",
+        "region": "Outer-South Metro",
+        "commute_cycling_pct": 0.6,
+        "total_workers": 79500,
+        "bike_commuters": 477,
+        "rank_2021": 16,
+        "center_lon": 145.08,
+        "center_lat": -37.99,
+        "label": "Kingston: 0.6%"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              145.03,
+              -37.94
+            ],
+            [
+              145.15,
+              -37.94
+            ],
+            [
+              145.15,
+              -38.04
+            ],
+            [
+              145.05,
+              -38.04
+            ],
+            [
+              145.03,
+              -37.94
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

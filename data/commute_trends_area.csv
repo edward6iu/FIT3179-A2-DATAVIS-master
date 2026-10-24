@@ -1,0 +1,21 @@
+year,mode,daily_trips_k
+2001,Private Car,245
+2001,Public Transport,180
+2001,Walking,28
+2001,Cycling,9
+2006,Private Car,252
+2006,Public Transport,210
+2006,Walking,34
+2006,Cycling,15
+2011,Private Car,238
+2011,Public Transport,265
+2011,Walking,42
+2011,Cycling,24
+2016,Private Car,215
+2016,Public Transport,310
+2016,Walking,51
+2016,Cycling,31
+2021,Private Car,165
+2021,Public Transport,195
+2021,Walking,48
+2021,Cycling,29

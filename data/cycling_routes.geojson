@@ -1,0 +1,397 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "Capital City Trail",
+        "infrastructure_type": "Off-Road Shared Trail",
+        "quality_tier": "Separated Off-Road",
+        "length_km": 29.5,
+        "daily_volume": 4200
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            144.958,
+            -37.822
+          ],
+          [
+            144.945,
+            -37.818
+          ],
+          [
+            144.935,
+            -37.812
+          ],
+          [
+            144.94,
+            -37.795
+          ],
+          [
+            144.96,
+            -37.78
+          ],
+          [
+            144.985,
+            -37.778
+          ],
+          [
+            145.005,
+            -37.79
+          ],
+          [
+            145.008,
+            -37.81
+          ],
+          [
+            144.985,
+            -37.825
+          ],
+          [
+            144.965,
+            -37.82
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "Main Yarra Trail",
+        "infrastructure_type": "Off-Road Shared Trail",
+        "quality_tier": "Separated Off-Road",
+        "length_km": 35.0,
+        "daily_volume": 5800
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            144.965,
+            -37.82
+          ],
+          [
+            144.99,
+            -37.828
+          ],
+          [
+            145.015,
+            -37.825
+          ],
+          [
+            145.025,
+            -37.805
+          ],
+          [
+            145.035,
+            -37.785
+          ],
+          [
+            145.065,
+            -37.77
+          ],
+          [
+            145.105,
+            -37.755
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "Upfield Bike Path",
+        "infrastructure_type": "Off-Road Shared Trail",
+        "quality_tier": "Separated Off-Road",
+        "length_km": 13.0,
+        "daily_volume": 3600
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            144.958,
+            -37.79
+          ],
+          [
+            144.96,
+            -37.77
+          ],
+          [
+            144.962,
+            -37.745
+          ],
+          [
+            144.963,
+            -37.72
+          ],
+          [
+            144.964,
+            -37.695
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "St Kilda Road Cycleway",
+        "infrastructure_type": "Protected On-Road Cycleway",
+        "quality_tier": "Protected On-Road",
+        "length_km": 4.5,
+        "daily_volume": 6200
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            144.968,
+            -37.822
+          ],
+          [
+            144.972,
+            -37.835
+          ],
+          [
+            144.978,
+            -37.85
+          ],
+          [
+            144.982,
+            -37.865
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "Canning Street Corridor",
+        "infrastructure_type": "Protected On-Road Cycleway",
+        "quality_tier": "Protected On-Road",
+        "length_km": 3.2,
+        "daily_volume": 3900
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            144.975,
+            -37.798
+          ],
+          [
+            144.976,
+            -37.785
+          ],
+          [
+            144.976,
+            -37.77
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "Albert Street Cycleway",
+        "infrastructure_type": "Protected On-Road Cycleway",
+        "quality_tier": "Protected On-Road",
+        "length_km": 2.1,
+        "daily_volume": 2400
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            144.98,
+            -37.81
+          ],
+          [
+            144.995,
+            -37.811
+          ],
+          [
+            145.01,
+            -37.812
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "Footscray Road Veloway",
+        "infrastructure_type": "Protected On-Road Cycleway",
+        "quality_tier": "Protected On-Road",
+        "length_km": 2.8,
+        "daily_volume": 2900
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            144.905,
+            -37.808
+          ],
+          [
+            144.925,
+            -37.812
+          ],
+          [
+            144.945,
+            -37.815
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "Sydney Road Bike Lanes",
+        "infrastructure_type": "Painted On-Road Lane",
+        "quality_tier": "Painted On-Road Lane",
+        "length_km": 5.8,
+        "daily_volume": 1800
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            144.96,
+            -37.785
+          ],
+          [
+            144.961,
+            -37.76
+          ],
+          [
+            144.962,
+            -37.73
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "Chapel Street Mixed Corridor",
+        "infrastructure_type": "Painted On-Road Lane",
+        "quality_tier": "Painted On-Road Lane",
+        "length_km": 4.1,
+        "daily_volume": 1200
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            144.995,
+            -37.835
+          ],
+          [
+            144.995,
+            -37.855
+          ],
+          [
+            144.996,
+            -37.875
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "Bay Trail (St Kilda to Brighton)",
+        "infrastructure_type": "Off-Road Shared Trail",
+        "quality_tier": "Separated Off-Road",
+        "length_km": 12.4,
+        "daily_volume": 4900
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            144.97,
+            -37.865
+          ],
+          [
+            144.978,
+            -37.885
+          ],
+          [
+            144.985,
+            -37.915
+          ],
+          [
+            144.99,
+            -37.945
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "Gardiners Creek Trail",
+        "infrastructure_type": "Off-Road Shared Trail",
+        "quality_tier": "Separated Off-Road",
+        "length_km": 17.0,
+        "daily_volume": 3100
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            145.025,
+            -37.835
+          ],
+          [
+            145.05,
+            -37.848
+          ],
+          [
+            145.085,
+            -37.86
+          ],
+          [
+            145.12,
+            -37.875
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_name": "Maribyrnong River Trail",
+        "infrastructure_type": "Off-Road Shared Trail",
+        "quality_tier": "Separated Off-Road",
+        "length_km": 25.0,
+        "daily_volume": 2700
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            144.905,
+            -37.808
+          ],
+          [
+            144.895,
+            -37.785
+          ],
+          [
+            144.885,
+            -37.76
+          ],
+          [
+            144.87,
+            -37.74
+          ]
+        ]
+      }
+    }
+  ]
+}

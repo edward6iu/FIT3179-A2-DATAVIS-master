@@ -1,0 +1,145 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Advanced Idiom 1 - Choropleth map. Share of employed residents who rode a bicycle as their only method of travel to work, by Greater Melbourne Local Government Area (ABS Census 2021). Classed (threshold) colour scale so readers compare bands rather than guess exact shades. Projection auto-fits to the container so the map stays responsive.",
+  "title": {
+    "text": "Cycling to work clusters in inner councils",
+    "subtitle": "Hover a council for its name and cycling share."
+  },
+  "width": "container",
+  "height": 440,
+  "projection": {
+    "type": "mercator",
+    "center": [
+      144.9631,
+      -37.8136
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/melbourne_lgas.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.LGA_NAME",
+          "from": {
+            "data": {
+              "url": "data/melbourne_lga_commute.csv"
+            },
+            "key": "LGA_NAME",
+            "fields": [
+              "short_name",
+              "region",
+              "commute_cycling_pct",
+              "total_workers",
+              "bike_commuters",
+              "rank_2021"
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "lgaHover",
+          "select": {
+            "type": "point",
+            "on": "pointerover",
+            "clear": "pointerout",
+            "fields": [
+              "short_name"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "cursor": "pointer"
+      },
+      "encoding": {
+        "color": {
+          "field": "commute_cycling_pct",
+          "type": "quantitative",
+          "title": "Cycle-to-work share (%)",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              1,
+              2,
+              4,
+              6
+            ],
+            "range": [
+              "#ecfdf5",
+              "#a7f3d0",
+              "#34d399",
+              "#059669",
+              "#064e3b"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 3,
+            "title": "Cycle-to-work share (%)"
+          }
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "lgaHover",
+            "empty": false,
+            "value": 3
+          },
+          "value": 0.8
+        },
+        "stroke": {
+          "condition": {
+            "param": "lgaHover",
+            "empty": false,
+            "value": "#0f172a"
+          },
+          "value": "#ffffff"
+        },
+        "tooltip": [
+          {
+            "field": "short_name",
+            "type": "nominal",
+            "title": "LGA"
+          },
+          {
+            "field": "region",
+            "type": "nominal",
+            "title": "Region"
+          },
+          {
+            "field": "commute_cycling_pct",
+            "type": "quantitative",
+            "title": "Cycle-to-work share (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "bike_commuters",
+            "type": "quantitative",
+            "title": "Bike commuters",
+            "format": ",.0f"
+          },
+          {
+            "field": "total_workers",
+            "type": "quantitative",
+            "title": "Employed residents",
+            "format": ",.0f"
+          },
+          {
+            "field": "rank_2021",
+            "type": "ordinal",
+            "title": "Metro rank (of 16)"
+          }
+        ]
+      }
+    }
+  ]
+}

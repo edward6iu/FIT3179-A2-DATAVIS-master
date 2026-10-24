@@ -1,0 +1,161 @@
+/* Editorial presentation for the Melbourne cycling story.
+   Loaded after the base stylesheet; chart encoding colours are unchanged. */
+:root {
+  --primary: #18634a;
+  --primary-dark: #123e30;
+  --primary-hover: #0c4934;
+  --primary-light: #edf4e9;
+  --primary-border: #c3d6c1;
+  --secondary: #246d79;
+  --secondary-hover: #174c55;
+  --bg-canvas: #f5f4ee;
+  --text-primary: #173e31;
+  --text-secondary: #394b43;
+  --text-muted: #586b61;
+  --border-default: #d9dfd5;
+  --border-subtle: #e7ebe3;
+  --font-heading: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --max-width: 1240px;
+}
+
+body { background: var(--bg-canvas); color: var(--text-secondary); }
+h1, h2, h3 { letter-spacing: -0.035em; }
+a { text-underline-offset: 3px; }
+a:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 3px solid #b06e17;
+  outline-offset: 4px;
+}
+
+/* Opening spread: a clear title, context and compact authorship. */
+.site-header {
+  background: #123e30;
+  padding: 3.75rem 2rem 2rem;
+  border: 0;
+  border-top: 8px solid #c9df8c;
+  box-shadow: none;
+}
+.site-header::before, .site-header::after, .eyebrow::before { content: none; }
+.eyebrow {
+  display: block;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: #d1e3bb;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+}
+.site-header h1 {
+  margin: 0 0 1.5rem;
+  text-wrap: initial;
+  line-height: 1;
+}
+.headline-title {
+  display: block;
+  color: #fafbf3;
+  font-size: clamp(3.5rem, 7.6vw, 6.2rem);
+  font-weight: 700;
+  letter-spacing: -0.065em;
+}
+.headline-deck {
+  display: block;
+  margin-top: 0.9rem;
+  color: #d1e3bb;
+  font-size: clamp(1.15rem, 2.5vw, 1.9rem);
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+}
+.subtitle { color: #e0e9df; max-width: 660px; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem; }
+.byline { gap: 0.75rem 2rem; padding-top: 1.25rem; border-color: #4d6c5c; }
+.byline > div { background: none; border: 0; border-radius: 0; padding: 0; backdrop-filter: none; box-shadow: none; }
+.byline dt { color: #bacdbd; }
+.byline dd { color: #f5f7ed; }
+.byline dd a { color: #d1e3bb; text-decoration: underline; }
+
+/* Section navigation reads like the contents of a short report. */
+.section-nav { background: #fafbf5; border-bottom: 1px solid #ccd5c7; box-shadow: none; backdrop-filter: none; }
+.section-nav ul { justify-content: flex-start; gap: 0 1.5rem; padding: 0 1.25rem; }
+.section-nav a { padding: 1rem 0.25rem 0.85rem; border: 0; border-bottom: 3px solid transparent; border-radius: 0; color: #506357; font-size: 0.88rem; }
+.section-nav a:hover, .section-nav a.active { background: transparent; color: #123e30; border-color: #18634a; box-shadow: none; }
+
+.page { padding: 0 1.5rem 1rem; }
+.intro { background: transparent; border: 0; border-bottom: 1px solid #ccd5c7; border-radius: 0; box-shadow: none; padding: 2.5rem 0; margin-bottom: 0; }
+p.lead { max-width: 940px; font-size: 1.13rem; line-height: 1.8; color: #394b43; }
+p.lead strong { color: #173e31; font-weight: 600; }
+.story-section, .story-section:hover { border: 0; border-bottom: 1px solid #ccd5c7; border-radius: 0; background: transparent; box-shadow: none; padding: 3rem 0 2rem; margin: 0; }
+.section-header { position: relative; padding: 0 0 0 4rem; margin-bottom: 2rem; border: 0; }
+.section-number { position: absolute; top: 0.2rem; left: 0; width: 42px; height: 42px; border-radius: 50%; background: #18634a; color: white; box-shadow: none; font-size: 1rem; margin: 0; }
+.section-header h2 { font-size: clamp(1.55rem, 3vw, 2.2rem); margin-bottom: 0.7rem; }
+.section-intro { color: #506357; font-size: 1rem; max-width: 800px; }
+
+/* Figures remain on white so plot colours and legends retain their contrast. */
+.vis-card, .vis-card:hover { border: 1px solid #d9dfd5; border-radius: 8px; padding: 1.25rem; background: #fff; box-shadow: none; transition: none; }
+figcaption { color: #526359; font-size: 0.79rem; line-height: 1.65; padding-top: 1rem; margin-top: 1rem; }
+figcaption strong { color: #173e31; }
+figcaption a { color: #245e49; text-decoration: underline; }
+.side-notes { padding: 0.75rem 0.25rem 0.25rem 0.75rem; }
+.side-notes h3 { color: #173e31; font-size: 1.22rem; }
+.side-notes p { color: #394b43; font-size: 0.95rem; }
+.council-key dd { color: #18634a; }
+
+.metric-card, .metric-card:hover { border: 0; border-top: 3px solid #18634a; border-radius: 0; box-shadow: none; transform: none; background: #eaf0e4; padding: 1.3rem 1.15rem; }
+.metric-card::before { content: none; }
+.metric-value { color: #123e30; font-size: 2.65rem; letter-spacing: -0.05em; }
+.metric-label { color: #43594b; font-weight: 400; line-height: 1.6; }
+.callout, .callout-accent { background: #eaf0e4; border-left: 3px solid #648451; border-radius: 0; color: #294c38; box-shadow: none; padding: 1rem 1.2rem; }
+.callout-label, .callout-accent .callout-label { display: block; background: none; color: #31563f; padding: 0; border-radius: 0; font-size: 0.72rem; letter-spacing: 0.1em; }
+.callout strong, .callout-accent strong { color: #123e30; }
+.comparison { gap: 0; border-top: 1px solid #cbd7c7; border-bottom: 1px solid #cbd7c7; margin: 0.5rem 0 1.25rem; }
+.comparison-item, .comparison-item:hover { background: transparent; border: 0; border-radius: 0; padding: 1.4rem 1.2rem; box-shadow: none; transform: none; }
+.comparison-item + .comparison-item { border-left: 1px solid #cbd7c7; }
+.comparison-figure { color: #18634a; font-size: 1.4rem; }
+.comparison-item p { color: #506357; }
+.spending-detail { margin: 1.75rem 0 0; }
+.spending-detail > h3 { font-size: 1.45rem; margin-bottom: 0.65rem; }
+.spending-detail > p { max-width: 900px; color: #394b43; }
+
+/* Reference index: two balanced columns, then separate authorship notes. */
+.site-footer { background: #e6ecdf; border-top: 0; margin-top: 0; padding: 3rem 1.5rem 1.5rem; color: #394b43; }
+.footer-heading { color: #173e31; font-size: 1.25rem; }
+.sources { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); column-gap: 3.5rem; row-gap: 1rem; padding-left: 1.25rem; margin: 0; }
+.sources li { color: #43594b; font-size: 0.8rem; line-height: 1.7; margin: 0; padding-left: 0.2rem; overflow-wrap: anywhere; }
+.sources li::marker { color: #18634a; font-weight: 700; }
+.sources em { color: #294c38; }
+.sources a, .site-footer a { color: #245e49; text-decoration: underline; }
+.sources a:hover, .site-footer a:hover { color: #123e30; }
+.site-footer strong { color: #173e31; }
+.site-footer p { color: #43594b; }
+.footer-meta { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3.5rem; row-gap: 0.75rem; border-top: 1px solid #bdcdb8; padding-top: 1.75rem; margin-top: 1rem; }
+.footer-meta .tech-note { grid-column: 1 / -1; border-top: 1px solid #bdcdb8; color: #526359 !important; padding-top: 1rem; margin-top: 0; }
+
+@media (max-width: 1023px) {
+  .side-notes { padding: 0.25rem 0; }
+  .metric-value { font-size: 2.35rem; }
+}
+@media (max-width: 700px) {
+  .site-header { padding: 2.5rem 1.25rem 1.5rem; }
+  .headline-title { font-size: clamp(2.8rem, 12vw, 4rem); }
+  .subtitle { font-size: 0.98rem; }
+  .byline { flex-direction: row; align-items: flex-start; gap: 0.6rem 1.2rem; }
+  .byline > div { font-size: 0.78rem; }
+  .section-nav ul { justify-content: space-between; gap: 0; padding: 0 0.6rem; }
+  .section-nav a { font-size: 0.75rem; padding: 0.85rem 0.15rem 0.7rem; }
+  .page { padding: 0 1rem; }
+  .intro { padding: 1.75rem 0; }
+  p.lead { font-size: 1rem; }
+  .story-section { padding: 2rem 0 1.25rem; }
+  .section-header { padding-left: 3rem; }
+  .section-number { width: 32px; height: 32px; font-size: 0.8rem; }
+  .section-header h2 { font-size: 1.45rem; }
+  .vis-card { padding: 0.85rem; }
+  .comparison { grid-template-columns: 1fr; }
+  .comparison-item + .comparison-item { border-left: 0; border-top: 1px solid #cbd7c7; }
+  .sources, .footer-meta { grid-template-columns: 1fr; }
+  .site-footer { padding: 2rem 1rem 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}

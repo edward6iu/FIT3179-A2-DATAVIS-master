@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Advanced Idiom 2 - Waffle (unit) chart. Each square is 1% of trips under 5 km in Greater Melbourne. The 100 cells are generated from a 5-row CSV using a cumulative window, the Vega sequence() function and flatten, so the chart updates automatically when the data changes. The x-domain is padded based on the aspect ratio so the grid stays square at any container width.",
+  "title": {
+    "text": "Trips under 5 km are an easy ride, yet 72 in 100 are made by car",
+    "subtitle": "Main mode of trips shorter than 5 km, Greater Melbourne. Each square = 1% of trips."
+  },
+  "width": "container",
+  "height": 340,
+  "data": {"url": "data/short_trips_mode.csv"},
+  "transform": [
+    {
+      "window": [{"op": "sum", "field": "share_pct", "as": "cum_end"}],
+      "sort": [{"field": "order", "order": "ascending"}],
+      "frame": [null, 0]
+    },
+    {"calculate": "datum.cum_end - datum.share_pct", "as": "cum_start"},
+    {"calculate": "sequence(datum.cum_start, datum.cum_end)", "as": "cells"},
+    {"flatten": ["cells"], "as": ["cell"]},
+    {"calculate": "datum.cell % 10", "as": "col"},
+    {"calculate": "floor(datum.cell / 10)", "as": "row"}
+  ],
+  "layer": [
+    {
+      "params": [
+        {"name": "modeHover", "select": {"type": "point", "on": "pointerover", "clear": "pointerout", "fields": ["mode"]}}
+      ],
+      "mark": {
+        "type": "square",
+        "filled": true,
+        "cornerRadius": 2,
+        "size": {"expr": "pow(min(width / 10, height / 11.3) * 0.82, 2)"}
+      },
+      "encoding": {
+        "x": {
+          "field": "col",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domainMin": {"expr": "-0.5 - max(0, (11.3 * width / height - 10) / 2)"},
+            "domainMax": {"expr": "9.5 + max(0, (11.3 * width / height - 10) / 2)"},
+            "nice": false,
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "row",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {"domain": [-0.5, 10.8], "reverse": true, "nice": false, "zero": false}
+        },
+        "color": {
+          "field": "mode",
+          "type": "nominal",
+          "title": "Main mode",
+          "sort": ["Car driver", "Car passenger", "Public transport", "Walking", "Bicycle"],
+          "scale": {
+            "domain": ["Car driver", "Car passenger", "Public transport", "Walking", "Bicycle"],
+            "range": ["#475569", "#94a3b8", "#38bdf8", "#a7f3d0", "#047857"]
+          },
+          "legend": {"orient": "bottom", "direction": "horizontal", "columns": 5, "symbolType": "square"}
+        },
+        "opacity": {
+          "condition": {"param": "modeHover", "empty": true, "value": 1},
+          "value": 0.25
+        },
+        "stroke": {
+          "condition": {"test": "datum.mode === 'Bicycle'", "value": "#022c22"},
+          "value": null
+        },
+        "tooltip": [
+          {"field": "mode", "type": "nominal", "title": "Mode"},
+          {"field": "share_pct", "type": "quantitative", "title": "Share of short trips (%)"}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{"col": 9.5, "row": 10.35, "text": "Bicycle: just 3 in every 100 short trips"}]},
+      "mark": {"type": "text", "align": "right", "baseline": "middle", "fontSize": 11.5, "fontWeight": 700, "fill": "#047857"},
+      "encoding": {
+        "x": {"field": "col", "type": "quantitative"},
+        "y": {"field": "row", "type": "quantitative"},
+        "text": {"field": "text", "type": "nominal"}
+      }
+    }
+  ]
+}

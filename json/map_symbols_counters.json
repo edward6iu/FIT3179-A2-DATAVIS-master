@@ -1,0 +1,250 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Proportional-symbol map of all 46 City of Melbourne Super Tuesday sites in 2017, the latest year in the public export retrieved 24 October 2026. Published two-hour morning counts; circle area is proportional to count. No daily averages or inferred growth.",
+  "title": {
+    "text": "A morning snapshot of cycling",
+    "subtitle": [
+      "Super Tuesday 2017 \u00b7 7\u20139 am \u00b7 46 surveyed sites",
+      "Latest survey year in this public export; hover for the intersection."
+    ]
+  },
+  "width": "container",
+  "height": 440,
+  "projection": {
+    "type": "mercator",
+    "center": [
+      144.948,
+      -37.811
+    ],
+    "scale": {
+      "expr": "max(width, 260) * 450"
+    },
+    "translate": {
+      "expr": "[width / 2, height / 2]"
+    }
+  },
+  "params": [
+    {
+      "name": "minVolume",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 1800,
+        "step": 100,
+        "name": "Minimum count (7\u20139 am) "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/melbourne_municipal_boundary.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f1f5f9",
+        "stroke": "#94a3b8",
+        "strokeWidth": 1,
+        "clip": true
+      }
+    },
+    {
+      "data": {
+        "url": "data/bike_counters.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "site_id": "number",
+            "survey_year": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "count_7_9am": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.count_7_9am >= minVolume"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.8,
+        "color": "#059669",
+        "stroke": "#064e3b",
+        "strokeWidth": 0.8,
+        "cursor": "pointer"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "count_7_9am",
+          "type": "quantitative",
+          "title": "Count (7\u20139 am)",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              0,
+              2000
+            ],
+            "range": [
+              0,
+              650
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "values": [
+              500,
+              1000,
+              1500
+            ],
+            "format": ",.0f"
+          }
+        },
+        "order": {
+          "field": "count_7_9am",
+          "sort": "descending"
+        },
+        "tooltip": [
+          {
+            "field": "site_id",
+            "type": "nominal",
+            "title": "Official site ID"
+          },
+          {
+            "field": "description",
+            "type": "nominal",
+            "title": "Survey intersection"
+          },
+          {
+            "field": "survey_year",
+            "type": "ordinal",
+            "title": "Survey year"
+          },
+          {
+            "field": "count_7_9am",
+            "type": "quantitative",
+            "title": "Cyclists counted (7\u20139 am)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/bike_counters.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "site_id": "number",
+            "survey_year": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "count_7_9am": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.site_id == 4436 && datum.count_7_9am >= minVolume"
+        },
+        {
+          "calculate": "datum.longitude - 0.012",
+          "as": "label_lon"
+        },
+        {
+          "calculate": "datum.latitude - 0.009",
+          "as": "label_lat"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#064e3b",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "label_lon"
+        },
+        "latitude2": {
+          "field": "label_lat"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/bike_counters.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "site_id": "number",
+            "survey_year": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "count_7_9am": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.site_id == 4436 && datum.count_7_9am >= minVolume"
+        },
+        {
+          "calculate": "datum.longitude - 0.012",
+          "as": "label_lon"
+        },
+        {
+          "calculate": "datum.latitude - 0.009",
+          "as": "label_lat"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -4,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "fill": "#064e3b"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": [
+            "Flinders / Swanston",
+            "1,816 counted (7\u20139 am)"
+          ]
+        }
+      }
+    }
+  ]
+}
