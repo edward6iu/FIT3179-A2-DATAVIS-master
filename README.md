@@ -45,8 +45,6 @@ From this directory run `python -m http.server 8000` and open http://localhost:8
 - Complete the Moodle template with domain, audience, purpose, sources/creation process and What/Why/How rationale.
 - Ensure AI acknowledgement reflects all assistance and prepare for the interview.
 
-Repository: https://github.com/edward6iu/FIT3179-A2-DATAVIS
-
-Intended deployment: https://edward6iu.github.io/FIT3179-A2-DATAVIS/
+Repository: https://github.com/edward6iu/FIT3179-A2-DATAVIS-master
 
 Local edits do not automatically update the live deployment.
